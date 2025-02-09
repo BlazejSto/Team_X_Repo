@@ -55,7 +55,8 @@ public class Coolness : MonoBehaviour
     private void FixedUpdate()
     {
         Decay();
-        MultDecay();
+
+        //MultDecay();
     }
 
 
@@ -149,14 +150,14 @@ public class Coolness : MonoBehaviour
 
         mult = 0;
 
-        mult += GunMultList[GunMult];
+        mult += GunMultList[GunMult];//adds the gun mult from the list
 
-        if (ComboMult)
+        if (ComboMult)// if ComboMult is true it adds to the multiplier
         {
             mult += ComboMultVal;
         }
 
-        if (mult <= 0)
+        if (mult <= 0)// if the multiplier is 0 after everything then it becomes 1 // THIS ALWAYS GOES LAST
         {
             mult = 1;
         }
@@ -164,7 +165,7 @@ public class Coolness : MonoBehaviour
         return mult;
     }
 
-    public void AddGunMult()
+    public void AddGunMult()//calling this adds 1 to the mult which will increase the multiplier up to 6 times, any time its called after will just reset its decay
     {
         if (GunMult <= 6)
         {
@@ -177,7 +178,7 @@ public class Coolness : MonoBehaviour
         }
     }
 
-    void GunMultDecay()
+    void GunMultDecay()// reduces a counter over time and once empty, resets GunMult, needs to be changed to a coroutine to untie it from frame rate
     {
         if(GunMultCounter > 0)
         {
@@ -190,14 +191,14 @@ public class Coolness : MonoBehaviour
 
     }
 
-    void AddMult()//add a function for every unique multiplier
-    {
+    //void AddMult()//add a function for every unique multiplier
+    //{
 
-    }
+    //}
 
-    void MultDecay()//add a function for every unique multiplier, this should ultimately be a coroutine that removes the multiplier after a certain amount of time (depending on the multiplier)
-    {
+    //void MultDecay()//add a function for every unique multiplier, this should ultimately be a coroutine that removes the multiplier after a certain amount of time (depending on the multiplier)
+    //{
 
-    }
+    //}
 
 }

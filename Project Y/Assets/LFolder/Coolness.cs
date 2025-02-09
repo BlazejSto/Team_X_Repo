@@ -4,10 +4,25 @@ using UnityEngine;
 
 public class Coolness : MonoBehaviour
 {
+    float coolness;
+    float decayrate;
+
+    bool F;
+    bool D;
+    bool C;
+    bool B;
+    bool A;
+    bool S;
+    bool H;
+
+    float GunMult;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        coolness = 0;
+        decayrate = 1;
     }
 
     // Update is called once per frame
@@ -23,9 +38,10 @@ public class Coolness : MonoBehaviour
     }
 
 
-    public void CoolnessIncrese()//called externally on an action or effect to increase coolness
+    public void CoolnessIncrese(float actionval)//called externally on an action or effect to increase coolness
     {
-
+        float mult = MultCalc();
+        coolness = coolness + (actionval * mult);
     }
 
     void RankCheck()//updates the player's rank based on their coolness
@@ -35,10 +51,19 @@ public class Coolness : MonoBehaviour
 
     void Decay()//rate at which coolness decays, CANNOT go below rank D through decay, so D should be 0, and each rank should have a 'unique' decay (some may be shared) so have code to check which decay is run
     {
-
+        coolness -= decayrate;
     }
 
-    void MultCalc()//adds all multipliers together
+    float MultCalc()//adds all multipliers together
+    {
+        float mult;
+
+        mult = 0;
+
+        return mult;
+    }
+
+    public void AddGunMult()
     {
 
     }

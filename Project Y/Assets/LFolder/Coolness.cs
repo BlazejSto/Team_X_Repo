@@ -63,23 +63,78 @@ public class Coolness : MonoBehaviour
     {
         float mult = MultCalc();
         coolness = coolness + (actionval * mult);
+
+        if (coolness < -1000)// can't go below -1000
+        {
+            coolness = -1000;
+        }
+
+        if(coolness > 6000)// can't go above 6000
+        {
+            coolness = 6000;
+        }
     }
 
     void RankCheck()//updates the player's rank based on their coolness
     {
         if(coolness < 0)//Less than 0 is rank F
         {
-
+            F = true;
+            D = false;
+            C = false;
+            B = false;
+            A = false;
+            S = false;
         }
 
         if (coolness >= 0 && coolness < 1000)// 0 - 999 is D
         {
-
+            F = false;
+            D = true;
+            C = false;
+            B = false;
+            A = false;
+            S = false;
         }
 
-        if (coolness > 1000 && coolness < 2000)// 1000 - 1999 is C
+        if (coolness >= 1000 && coolness < 2000)// 1000 - 1999 is C
         {
+            F = false;
+            D = false;
+            C = true;
+            B = false;
+            A = false;
+            S = false;
+        }
 
+        if(coolness >= 2000 && coolness < 3500)// 2000 - 3499 is B
+        {
+            F = false;
+            D = false;
+            C = false;
+            B = true;
+            A = false;
+            S = false;
+        }
+
+        if(coolness >= 3500 && coolness < 5000)// 3500 - 4999 is A
+        {
+            F = false;
+            D = false;
+            C = false;
+            B = false;
+            A = true;
+            S = false;
+        }
+
+        if(coolness >= 5000)// 5000 + is S
+        {
+            F = false;
+            D = false;
+            C = false;
+            B = false;
+            A = false;
+            S = true;
         }
     }
 

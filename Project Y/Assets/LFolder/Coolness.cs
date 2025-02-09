@@ -16,10 +16,13 @@ public class Coolness : MonoBehaviour
     bool S;
     bool H;
 
-    float GunMult;
+    int GunMult;
     public List<float> GunMultList;
     float GunMultCounter;
     float GunMultMaxCount;
+
+    bool ComboMult;
+    float ComboMultVal;
 
     // Start is called before the first frame update
     void Start()
@@ -34,10 +37,13 @@ public class Coolness : MonoBehaviour
         GunMultList.Add(1f);//default mult
         GunMultList.Add(2f);//shot 1
         GunMultList.Add(3f);//shot 2
-        GunMultList.Add(5f);//shot 3, etc.
+        GunMultList.Add(5f);//shot 3
         GunMultList.Add(8f);
         GunMultList.Add(13f);
         GunMultList.Add(21f);//shot 6
+
+        ComboMult = false;
+        ComboMultVal = 1.5f;
     }
 
     // Update is called once per frame
@@ -61,7 +67,20 @@ public class Coolness : MonoBehaviour
 
     void RankCheck()//updates the player's rank based on their coolness
     {
+        if(coolness < 0)//Less than 0 is rank F
+        {
 
+        }
+
+        if (coolness >= 0 && coolness < 1000)// 0 - 999 is D
+        {
+
+        }
+
+        if (coolness > 1000 && coolness < 2000)// 1000 - 1999 is C
+        {
+
+        }
     }
 
     void Decay()//rate at which coolness decays, CANNOT go below rank D through decay, so D should be 0, and each rank should have a 'unique' decay (some may be shared) so have code to check which decay is run
@@ -74,6 +93,18 @@ public class Coolness : MonoBehaviour
         float mult;
 
         mult = 0;
+
+        mult += GunMultList[GunMult];
+
+        if (ComboMult)
+        {
+            mult += ComboMultVal;
+        }
+
+        if (mult <= 0)
+        {
+            mult = 1;
+        }
 
         return mult;
     }

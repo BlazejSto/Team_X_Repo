@@ -87,7 +87,7 @@ public class Coolness : MonoBehaviour
             S = false;
         }
 
-        if (coolness >= 0 && coolness < 1000)// 0 - 999 is D
+        else if (coolness >= 0 && coolness < 1000)// 0 - 999 is D
         {
             F = false;
             D = true;
@@ -97,7 +97,7 @@ public class Coolness : MonoBehaviour
             S = false;
         }
 
-        if (coolness >= 1000 && coolness < 2000)// 1000 - 1999 is C
+        else if (coolness >= 1000 && coolness < 2000)// 1000 - 1999 is C
         {
             F = false;
             D = false;
@@ -107,7 +107,7 @@ public class Coolness : MonoBehaviour
             S = false;
         }
 
-        if(coolness >= 2000 && coolness < 3500)// 2000 - 3499 is B
+        else if(coolness >= 2000 && coolness < 3500)// 2000 - 3499 is B
         {
             F = false;
             D = false;
@@ -117,7 +117,7 @@ public class Coolness : MonoBehaviour
             S = false;
         }
 
-        if(coolness >= 3500 && coolness < 5000)// 3500 - 4999 is A
+        else if(coolness >= 3500 && coolness < 5000)// 3500 - 4999 is A
         {
             F = false;
             D = false;
@@ -127,7 +127,7 @@ public class Coolness : MonoBehaviour
             S = false;
         }
 
-        if(coolness >= 5000)// 5000 + is S
+        else if(coolness >= 5000)// 5000 + is S
         {
             F = false;
             D = false;

@@ -21,8 +21,11 @@ public class Coolness : MonoBehaviour
     float GunMultCounter;
     float GunMultMaxCount;
 
+    float GenericMaxCounter;
+
     bool ComboMult;
     float ComboMultVal;
+    float ComboMultCounter;
 
     // Start is called before the first frame update
     void Start()
@@ -42,14 +45,20 @@ public class Coolness : MonoBehaviour
         GunMultList.Add(13f);
         GunMultList.Add(21f);//shot 6
 
+        GenericMaxCounter = 250;
+
         ComboMult = false;
         ComboMultVal = 1.5f;
+        ComboMultCounter = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         RankCheck();
+
+        GunMultDecay();
+        ComboMultDecay();
     }
 
     private void FixedUpdate()
@@ -189,6 +198,24 @@ public class Coolness : MonoBehaviour
             GunMult = 0;
         }
 
+    }
+
+    public void AddComboMult()// can be called to turn ComboMult on or to reset decay
+    {
+        ComboMult = true;
+        ComboMultCounter = GenericMaxCounter;
+    }
+
+    void ComboMultDecay()// Counts down until 0, then turns comboMult off // needs to be turned into a coroutine to untie from framerate
+    {
+        if(ComboMultCounter > 0)
+        {
+            ComboMultCounter--;
+        }
+        else
+        {
+            ComboMult = false;
+        }
     }
 
     //void AddMult()//add a function for every unique multiplier

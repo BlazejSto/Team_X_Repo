@@ -8,13 +8,13 @@ public class Coolness : MonoBehaviour
     float coolness;
     float decayrate;
 
-    bool F;
-    bool D;
-    bool C;
-    bool B;
-    bool A;
-    bool S;
-    bool H;
+    //bool F;
+    //bool D;
+    //bool C;
+    //bool B;
+    //bool A;
+    //bool S;
+    //bool H;
 
     char Rank;
 
@@ -96,72 +96,72 @@ public class Coolness : MonoBehaviour
     {
         if(coolness < 0)//Less than 0 is rank F
         {
-            F = true;
-            D = false;
-            C = false;
-            B = false;
-            A = false;
-            S = false;
+            //F = true;
+            //D = false;
+            //C = false;
+            //B = false;
+            //A = false;
+            //S = false;
 
             Rank = 'f';
         }
 
         else if (coolness >= 0 && coolness < 1000)// 0 - 999 is D
         {
-            F = false;
-            D = true;
-            C = false;
-            B = false;
-            A = false;
-            S = false;
+            //F = false;
+            //D = true;
+            //C = false;
+            //B = false;
+            //A = false;
+            //S = false;
 
             Rank = 'd';
         }
 
         else if (coolness >= 1000 && coolness < 2000)// 1000 - 1999 is C
         {
-            F = false;
-            D = false;
-            C = true;
-            B = false;
-            A = false;
-            S = false;
+            //F = false;
+            //D = false;
+            //C = true;
+            //B = false;
+            //A = false;
+            //S = false;
 
             Rank = 'c';
         }
 
         else if(coolness >= 2000 && coolness < 3500)// 2000 - 3499 is B
         {
-            F = false;
-            D = false;
-            C = false;
-            B = true;
-            A = false;
-            S = false;
+            //F = false;
+            //D = false;
+            //C = false;
+            //B = true;
+            //A = false;
+            //S = false;
 
             Rank = 'b';
         }
 
         else if(coolness >= 3500 && coolness < 5000)// 3500 - 4999 is A
         {
-            F = false;
-            D = false;
-            C = false;
-            B = false;
-            A = true;
-            S = false;
+            //F = false;
+            //D = false;
+            //C = false;
+            //B = false;
+            //A = true;
+            //S = false;
 
             Rank = 'a';
         }
 
         else if(coolness >= 5000)// 5000 + is S
         {
-            F = false;
-            D = false;
-            C = false;
-            B = false;
-            A = false;
-            S = true;
+            //F = false;
+            //D = false;
+            //C = false;
+            //B = false;
+            //A = false;
+            //S = true;
 
             Rank = 's';
         }

@@ -22,7 +22,6 @@ public class TestingScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Combo = false;
         Light = false;
         Heavy = false;
 
@@ -104,7 +103,7 @@ public class TestingScript : MonoBehaviour
         if (!Heavy)
         {
             Heavy = true;
-            HEDecCounter = basicCountMax;
+            HeDecCounter = basicCountMax;
         }
         else
         {

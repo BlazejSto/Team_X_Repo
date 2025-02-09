@@ -199,7 +199,7 @@ public class Coolness : MonoBehaviour
 
     public void AddGunMult()//calling this adds 1 to the mult which will increase the multiplier up to 6 times, any time its called after will just reset its decay
     {
-        if (GunMult <= 6)
+        if (GunMult < 6)
         {
             GunMult++;
             GunMultCounter = GunMultMaxCount;

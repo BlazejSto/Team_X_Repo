@@ -50,18 +50,18 @@ public class TestingScript : MonoBehaviour
 
     void LightAttack()
     {
-        cool.CoolnessIncrease(1);
+        cool.CoolnessIncrease(10);
         
     }
 
     void HeavyAttack()
     {
-        cool.CoolnessIncrease(2.5f);
+        cool.CoolnessIncrease(25);
     }
 
     void Gun()
     {
-        cool.CoolnessIncrease(3);
+        cool.CoolnessIncrease(30);
     }
 
     void ComboTracker()

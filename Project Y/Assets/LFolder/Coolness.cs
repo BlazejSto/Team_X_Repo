@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,13 +17,27 @@ public class Coolness : MonoBehaviour
     bool H;
 
     float GunMult;
-
+    public List<float> GunMultList;
+    float GunMultCounter;
+    float GunMultMaxCount;
 
     // Start is called before the first frame update
     void Start()
     {
         coolness = 0;
         decayrate = 1;
+
+        GunMult = 0;
+        GunMultMaxCount = 500;
+
+        GunMultList = new List<float>();
+        GunMultList.Add(1f);//default mult
+        GunMultList.Add(2f);//shot 1
+        GunMultList.Add(3f);//shot 2
+        GunMultList.Add(5f);//shot 3, etc.
+        GunMultList.Add(8f);
+        GunMultList.Add(13f);
+        GunMultList.Add(21f);//shot 6
     }
 
     // Update is called once per frame
@@ -65,6 +80,27 @@ public class Coolness : MonoBehaviour
 
     public void AddGunMult()
     {
+        if (GunMult <= 6)
+        {
+            GunMult++;
+            GunMultCounter = GunMultMaxCount;
+        }
+        else
+        {
+            GunMultCounter = GunMultMaxCount;
+        }
+    }
+
+    void GunMultDecay()
+    {
+        if(GunMultCounter > 0)
+        {
+            GunMultCounter--;
+        }
+        else if (GunMult != 0)
+        {
+            GunMult = 0;
+        }
 
     }
 

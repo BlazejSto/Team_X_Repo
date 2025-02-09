@@ -16,6 +16,8 @@ public class Coolness : MonoBehaviour
     bool S;
     bool H;
 
+    char Rank;
+
     int GunMult;
     public List<float> GunMultList;
     float GunMultCounter;
@@ -59,6 +61,10 @@ public class Coolness : MonoBehaviour
 
         GunMultDecay();
         ComboMultDecay();
+
+        Debug.Log("Rank"+Rank);
+        Debug.Log("GunMult"+GunMult);
+        Debug.Log("ComboMult"+ComboMult);
     }
 
     private void FixedUpdate()
@@ -83,6 +89,7 @@ public class Coolness : MonoBehaviour
         {
             coolness = 6000;
         }
+        Debug.Log("New Coolness = "+coolness);
     }
 
     void RankCheck()//updates the player's rank based on their coolness
@@ -95,6 +102,8 @@ public class Coolness : MonoBehaviour
             B = false;
             A = false;
             S = false;
+
+            Rank = 'f';
         }
 
         else if (coolness >= 0 && coolness < 1000)// 0 - 999 is D
@@ -105,6 +114,8 @@ public class Coolness : MonoBehaviour
             B = false;
             A = false;
             S = false;
+
+            Rank = 'd';
         }
 
         else if (coolness >= 1000 && coolness < 2000)// 1000 - 1999 is C
@@ -115,6 +126,8 @@ public class Coolness : MonoBehaviour
             B = false;
             A = false;
             S = false;
+
+            Rank = 'c';
         }
 
         else if(coolness >= 2000 && coolness < 3500)// 2000 - 3499 is B
@@ -125,6 +138,8 @@ public class Coolness : MonoBehaviour
             B = true;
             A = false;
             S = false;
+
+            Rank = 'b';
         }
 
         else if(coolness >= 3500 && coolness < 5000)// 3500 - 4999 is A
@@ -135,6 +150,8 @@ public class Coolness : MonoBehaviour
             B = false;
             A = true;
             S = false;
+
+            Rank = 'a';
         }
 
         else if(coolness >= 5000)// 5000 + is S
@@ -145,6 +162,8 @@ public class Coolness : MonoBehaviour
             B = false;
             A = false;
             S = true;
+
+            Rank = 's';
         }
     }
 

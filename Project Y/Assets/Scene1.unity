@@ -239,7 +239,6 @@ GameObject:
   - component: {fileID: 992613119}
   - component: {fileID: 992613118}
   - component: {fileID: 992613117}
-  - component: {fileID: 992613116}
   - component: {fileID: 992613115}
   m_Layer: 0
   m_Name: Cube (1)
@@ -293,18 +292,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 1}
   m_EdgeRadius: 0
---- !u!114 &992613116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 992613114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ea06218df325df42a8f0e9244d6e739, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &992613117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,6 +507,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ea06218df325df42a8f0e9244d6e739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  jumpForce: 8
+  airControlForce: 10
+  airControlMax: 1.5
 --- !u!61 &2025169352
 BoxCollider2D:
   m_ObjectHideFlags: 0

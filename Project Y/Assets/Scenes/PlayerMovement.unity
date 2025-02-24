@@ -320,8 +320,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1503029535449795836, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
+      propertyPath: dashTime
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503029535449795836, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
+      propertyPath: dashDelay
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503029535449795836, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
       propertyPath: testAttack
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503029535449795836, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
+      propertyPath: dashDistance
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3480970341495208893, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
       propertyPath: m_IsActive

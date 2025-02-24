@@ -13,8 +13,12 @@ public class PlayerScript : MonoBehaviour
     bool decelerate = false;
     public float decelRate;
 
-    bool canDash = false;
+    bool canDash = true;
+    bool isDashing = false;
     public float dashDistance;
+    public float dashTime;
+    public float dashDelay;
+    float nextDash = 0;
 
 
     // Start is called before the first frame update
@@ -35,13 +39,22 @@ public class PlayerScript : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
 
-        if(Input.GetKeyDown(KeyCode.Space) == true)
-            canDash = true;
-        else
-            canDash = false;
-
+        WASD();
         Dash();
+    }
 
+    //fixed update doesn't depend on framerate - good for physics updates
+    private void FixedUpdate()
+    {
+        if(isDashing == false)
+            rb.velocity = new Vector2(horizontalInput * speed, verticalInput * speed);//gives the player constant velocity
+
+        if (decelerate == true && isDashing == false)
+            rb.velocity = rb.velocity * decelRate;
+    }
+
+    private void WASD()
+    {
         if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) == false)
             decelerate = true;
 
@@ -49,23 +62,28 @@ public class PlayerScript : MonoBehaviour
             decelerate = false;
     }
 
-    //fixed update doesn't depend on framerate - good for physics updates
-    private void FixedUpdate()
-    {
-        rb.velocity = new Vector2(horizontalInput * speed, verticalInput * speed);//gives the player constant velocity
-
-        if (decelerate == true)
-            rb.velocity = rb.velocity * decelRate;
-    }
-
-
     private void Dash()
     {
-        if (canDash == true)
+        if (Input.GetKeyDown(KeyCode.Space) == true && canDash == true)
         {
-            Vector3 movementDirection = rb.velocity.normalized;
-            transform.position = transform.position+(dashDistance*movementDirection);
+            isDashing = true;
+            canDash = false;
+            nextDash = Time.time + dashDelay;
+
+            StartCoroutine(StopDash());
+            Debug.Log("Is dashing");
         }
+
+        if(isDashing)
+            rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * dashDistance, Input.GetAxisRaw("Vertical") * dashDistance);
+
+        if (Time.time > nextDash)
+            canDash = true;
     }
 
+    private IEnumerator StopDash()
+    {
+        yield return new WaitForSeconds(dashTime);
+        isDashing = false;
+    }
 }

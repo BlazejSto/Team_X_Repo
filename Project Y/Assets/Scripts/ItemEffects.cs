@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class PlayerController : MonoBehaviour
+public class ItemEffects : MonoBehaviour
 {
     Rigidbody2D rigidBody;
     public float speed = 5.0f;
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-
+            speed = 7.0f;
         }
     }
     void FixedUpdate()

@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 536328354}
   m_Layer: 0
   m_Name: Triangle
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -540,7 +540,7 @@ GameObject:
   - component: {fileID: 1086289162}
   m_Layer: 0
   m_Name: Circle (1)
-  m_TagString: Faster
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -670,7 +670,7 @@ GameObject:
   - component: {fileID: 2015365280}
   m_Layer: 0
   m_Name: Circle
-  m_TagString: Bigger
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -18,12 +18,6 @@ public class ItemEffects : MonoBehaviour
     void Update()
     {
     }
-    void FixedUpdate()
-    {
-        float h = Input.GetAxis("Horizontal");
-        if (h != 0.0f)
-            rigidBody.velocity = new Vector2(h * speed, 0.0f);
-    }
 
     private void OnCollisionEnter2D(Collision2D coll)
     {
@@ -44,6 +38,8 @@ public class ItemEffects : MonoBehaviour
 
         }
 
+
     }
 }
+
 

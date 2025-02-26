@@ -9,6 +9,8 @@ public class ItemEffects : MonoBehaviour
     public float jumpForce = 8.0f;
     public float airControlForce = 10.0f;
     public float airControlMax = 1.5f;
+    public GameObject BulletPrefab;
+    public Transform firePoint;
     // Use this for initialization
     void Start()
     {

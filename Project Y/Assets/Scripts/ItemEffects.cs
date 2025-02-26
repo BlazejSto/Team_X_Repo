@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 public class ItemEffects : MonoBehaviour
 {
     Rigidbody2D rigidBody;
@@ -16,22 +17,33 @@ public class ItemEffects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //This piece of code will increase the size of the player when the E key is pressed down
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            rigidBody.transform.localScale = new Vector3(2, 2, 2);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            speed = 7.0f;
-        }
     }
     void FixedUpdate()
     {
         float h = Input.GetAxis("Horizontal");
         if (h != 0.0f)
             rigidBody.velocity = new Vector2(h * speed, 0.0f);
+    }
+
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Bigger")
+        {
+            rigidBody.transform.localScale = new Vector3(2, 2, 2);
+            Destroy(coll.gameObject);
+        }
+
+        if (coll.gameObject.tag == "Faster")
+        {
+            speed = 10.0f;
+            Destroy(coll.gameObject);
+        }
+
+        if (coll.gameObject.tag == "Double")
+        {
+
+        }
+
     }
 }
 

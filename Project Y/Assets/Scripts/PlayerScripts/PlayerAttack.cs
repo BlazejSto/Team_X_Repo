@@ -34,7 +34,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 timer = 0;
                 attacking = false;
-                attackArea.SetActive(attacking);
+                attackArea.SetActive(false);
             }
         }
     }
@@ -42,6 +42,6 @@ public class PlayerAttack : MonoBehaviour
     private void Attack()
     {
         attacking = true;
-        attackArea.SetActive(attacking);
+        attackArea.SetActive(true);
     }
 }

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int health = 100;
+    [SerializeField] private int Player_health = 100;
 
-    private int MAX_HEALTH = 100;
+    private int Player_MAX_HEALTH = 100;
     void Update()
     {
 
@@ -14,18 +14,18 @@ public class Health : MonoBehaviour
 
     public void Damage(int amount)
     {
-        if(amount < 0)
+        if (amount < 0)
         {
             throw new System.ArgumentOutOfRangeException("Cannot have negative damage");
         }
-        else if(amount > 0)
+        else if (amount > 0)
         {
-            this.health -= amount;
+            this.Player_health -= amount;
         }
 
-        if (health < 1)
+        if (Player_health < 1)
         {
-            Die();
+            PlayerDeath();
         }
     }
     public void Heal(int amount)
@@ -35,21 +35,21 @@ public class Health : MonoBehaviour
             throw new System.ArgumentOutOfRangeException("Cannot have negative healing");
         }
 
-        if(health + amount > MAX_HEALTH)
+        if (Player_health + amount > Player_MAX_HEALTH)
         {
-            this.health = MAX_HEALTH;
+            Player_health = Player_MAX_HEALTH;
         }
         else
         {
-            this.health += amount;
+            Player_health += amount;
         }
-        
+
     }
 
-    private void Die()
+    private void PlayerDeath()
     {
         Debug.Log("I am dead!");
         Destroy(gameObject);
     }
-    
+
 }

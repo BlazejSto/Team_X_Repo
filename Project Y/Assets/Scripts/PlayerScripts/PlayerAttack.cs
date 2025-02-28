@@ -5,16 +5,20 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
 
-    private GameObject AttackArea = default;
-    private bool attacking = false;
+    private GameObject LightAttackArea = default;
+    private GameObject HeavyAttackArea = default;
+    private bool lightAttacking = false;
+    private bool heavyAttacking = false;
 
-    private float timeToAttack = 0.5f;
+    private float timeToLightAttack = 0.25f;
+    private float timeToHeavyAttack = 1.0f;
     private float timer = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        AttackArea = transform.GetChild(0).gameObject;
+        LightAttackArea = transform.GetChild(0).gameObject;
+        HeavyAttackArea = transform.GetChild(1).gameObject;
     }
 
     // Update is called once per frame
@@ -22,25 +26,47 @@ public class PlayerAttack : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.J))
         {
-            Attack();
+            LightAttack();
         }
 
-        if(attacking)
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            HeavyAttack();
+        }
+
+        if (lightAttacking)
         {
             timer += Time.deltaTime;
 
-            if(timer >= timeToAttack)
+            if(timer >= timeToLightAttack)
             {
                 timer = 0;
-                attacking = false;
-                AttackArea.SetActive(attacking);
+                lightAttacking = false;
+                LightAttackArea.SetActive(lightAttacking);
+            }
+        }
+
+        if (heavyAttacking)
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= timeToHeavyAttack)
+            {
+                timer = 0;
+                heavyAttacking = false;
+                HeavyAttackArea.SetActive(heavyAttacking);
             }
         }
     }
 
-    private void Attack()
+    private void HeavyAttack()
     {
-        attacking = true;
-        AttackArea.SetActive(attacking);
+        heavyAttacking = true;
+        HeavyAttackArea.SetActive(heavyAttacking);
+    }
+    private void LightAttack()
+    {
+        lightAttacking = true;
+        LightAttackArea.SetActive(lightAttacking);
     }
 }

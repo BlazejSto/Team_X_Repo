@@ -11,7 +11,7 @@ public class PlayerAttack : MonoBehaviour
     private bool heavyAttacking = false;
 
     private float timeToLightAttack = 0.25f;
-    private float timeToHeavyAttack = 1.0f;
+    private float timeToHeavyAttack = 0.75f;
     private float timer = 0f;
 
     // Start is called before the first frame update

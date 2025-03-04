@@ -6,7 +6,7 @@ using UnityEngine;
 public class LightAttack : MonoBehaviour
 {
     private int lightAttackDamage = 5;
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerStay2D(Collider2D collider)
     {
         if(collider.GetComponent<EnemyHealth>() != null)
         {
@@ -14,4 +14,5 @@ public class LightAttack : MonoBehaviour
             attack.Enemy_Damage(lightAttackDamage);
         }
     }
+
 }

@@ -9,12 +9,18 @@ public class ItemEffects : MonoBehaviour
     public float jumpForce = 8.0f;
     public float airControlForce = 10.0f;
     public float airControlMax = 1.5f;
-    public GameObject BulletPrefab;
-    public Transform firePoint;
+
+    bool IsFire;
+    bool IsIce;
+
+    //public GameObject BulletPrefab;
+    //public Transform firePoint;
     // Use this for initialization
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        IsFire = false;
+        IsIce = false;
     }
     // Update is called once per frame
     void Update()
@@ -24,7 +30,7 @@ public class ItemEffects : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D coll)
     {
         //if (coll.gameObject.tag == "Bigger")
-     //   { bobb
+     //   { 
         //    rigidBody.transform.localScale = new Vector3(2, 2, 2);
        //     Destroy(coll.gameObject);
        // }

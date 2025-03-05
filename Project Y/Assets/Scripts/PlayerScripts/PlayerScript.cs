@@ -6,6 +6,9 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     private Rigidbody2D rb;
+    public ElementEffects effects;
+
+    private float slowMult;
 
     private float horizontalInput;
     private float verticalInput;
@@ -20,16 +23,23 @@ public class PlayerScript : MonoBehaviour
     public float dashDelay;
     float nextDash = 0;
 
+   
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        effects = GetComponent<ElementEffects>();
+        effects.IceEffects();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        slowMult = effects.slowMult;
+        Debug.Log(slowMult);
         //GetAxis returns a float between +-1 based on button inputs
         //use GetAxisRaw for snappier movement
         //horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -47,7 +57,7 @@ public class PlayerScript : MonoBehaviour
     private void FixedUpdate()
     {
         if(isDashing == false)
-            rb.velocity = new Vector2(horizontalInput * speed, verticalInput * speed);//gives the player constant velocity
+            rb.velocity = new Vector2(horizontalInput * (speed * slowMult), verticalInput * (speed * slowMult));//gives the player constant velocity
 
         if (decelerate == true && isDashing == false)
             rb.velocity = rb.velocity * decelRate;

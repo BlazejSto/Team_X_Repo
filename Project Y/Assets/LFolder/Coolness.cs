@@ -26,6 +26,7 @@ public class Coolness : MonoBehaviour
     bool FireMult;
     bool IceMult;
 
+    public bool onFire;
     // Start is called before the first frame update
     void Start()
     {
@@ -283,6 +284,7 @@ public class Coolness : MonoBehaviour
 
     public void Fire()//when the player is set on fire, call this
     {
+        
         if(Rank == 'd')//if at rank D and is set on fire, then the players rank becomes F and is set to -750
         {
             coolness = -750;

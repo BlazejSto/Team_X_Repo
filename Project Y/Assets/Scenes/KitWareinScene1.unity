@@ -668,6 +668,7 @@ GameObject:
   - component: {fileID: 2015365282}
   - component: {fileID: 2015365281}
   - component: {fileID: 2015365280}
+  - component: {fileID: 2015365283}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -787,6 +788,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2015365283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015365279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ea06218df325df42a8f0e9244d6e739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  HeavyAttackDamage: 10
 --- !u!1 &2025169344
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,11 +942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpForce: 8
-  airControlForce: 10
-  airControlMax: 1.5
-  BulletPrefab: {fileID: 0}
-  firePoint: {fileID: 0}
+  HeavyAttackDamage: 10
 --- !u!61 &2025169352
 BoxCollider2D:
   m_ObjectHideFlags: 0

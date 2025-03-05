@@ -15,7 +15,7 @@ public class ItemDictionary : MonoBehaviour
         CollectableItems.Add("PiercingItem", 0);
         CollectableItems.Add("CoolMeterItem", 0);
 
-        Debug.Log(CollectableItems["Item1"]);
+        //Debug.Log(CollectableItems["Item1"]);
 
     }
 

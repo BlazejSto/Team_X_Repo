@@ -47,6 +47,25 @@ public class ItemEffects : MonoBehaviour
     {
     }
 
+
+    private void WhatWeapon()
+    {
+        if ((IsWeaponFists) || (IsWeaponKnuckles) || (IsWeaponKnife))
+        {
+            bool LightAttacker = true;
+        }
+
+        if ((IsWeaponBat) || (IsWeaponCrowbar))
+        {
+            bool HeavyAttacker = true;
+        }
+
+        if ((IsWeaponRevolver) || (IsWeaponColt) || (IsWeaponTommy) || (IsWeaponShotGun || (IsWeaponFlamethrower)))
+        {
+            bool RangeedAttacker = true;
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "Bigger")
@@ -121,7 +140,15 @@ public class ItemEffects : MonoBehaviour
                     HeavyAttackDamage += HeavyAttackDamage * 5;
                     Debug.Log(HeavyAttackDamage);
                     //If coolness is bigger than 6100, turn this item effect off
+                    //timer = 0f;
                     //coolness =+ value 
+                }
+
+                if (IsIce == true)
+                {
+                    //Get hypothermia value
+                    //Add multiplier and apply to attacks
+                    //HeavyAttackDamage = HeavyAttackDamage * //Multiplier from above;
                 }
                 timer = 0f;
             }

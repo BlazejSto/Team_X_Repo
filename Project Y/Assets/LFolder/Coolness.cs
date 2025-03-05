@@ -7,6 +7,7 @@ public class Coolness : MonoBehaviour
 {
     float coolness;
     float decayrate;
+    float slowMult = 1;
 
     char Rank;
 
@@ -26,10 +27,16 @@ public class Coolness : MonoBehaviour
     bool FireMult;
     bool IceMult;
 
-    public bool onFire;
+    ElementEffects Effect;
+    PlayerScript playerScript;
+
     // Start is called before the first frame update
     void Start()
     {
+        Effect = GetComponent<ElementEffects>();
+        playerScript = GetComponent<PlayerScript>();
+        playerScript.slowMult = slowMult;
+        //
         coolness = 0;
         decayrate = 1;
 
@@ -55,11 +62,14 @@ public class Coolness : MonoBehaviour
         IceMult = false;
 
         Hypothermia = 0;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+
         RankCheck();
 
         if(Rank == 'h')
@@ -69,7 +79,23 @@ public class Coolness : MonoBehaviour
 
         GunMultDecay();
         ComboMultDecay();
-
+        if (Input.GetKey(KeyCode.F))
+        {
+            Fire();
+        }
+        if (Input.GetKey(KeyCode.H))
+        {
+            FireMultOff();
+        }
+        if (Input.GetKey(KeyCode.V))
+        {
+            Ice();
+            Hypothermia = 5;
+        }
+        if (Input.GetKey(KeyCode.X))
+        {
+            IceMultOff();
+        }
         Debug.Log("Rank"+Rank);
         Debug.Log("GunMult"+GunMult);
         Debug.Log("ComboMult"+ComboMult);
@@ -78,7 +104,7 @@ public class Coolness : MonoBehaviour
     private void FixedUpdate()
     {
         Decay();
-
+        
         //MultDecay();
     }
 
@@ -175,27 +201,32 @@ public class Coolness : MonoBehaviour
             //Damage received and dealt increased (1.5x?)  <----need public stat to change
             //Item efficiency for cold items now 1 <---- need public stat to change (sprint 3?)
             //Ice visual effects stage 1 (HUD effects)
+            slowMult = 0.9f;
         }
         if(Hypothermia >= 2)
         {
             //Damage received and dealt increased further (now 2x?) <---- need public stat to change
             //Ice visual effects stage 2(HUD effects)
+            slowMult = 0.85f;
         }
         if (Hypothermia >= 3)
         {
             //Item efficiency for cold now 2 <---- need public stat to change (sprint 3?)
             //Health Recovery of any kind reduced (0.75x?) <---- need public stat to change
             //Ice visual effects stage 3(HUD effects)
+            slowMult = 0.8f;
         }
         if (Hypothermia >= 4)
         {
             //Speed Reduced <---- need public stat to change
             //Warning to the player about High Hypothermia? (HUD effects)
+            slowMult = 0.75f;
         }
         if (Hypothermia > 5)
         {
             //The damaging effect of Hypothermia (Death or DOT) <---- need public stat to change
             //Ice visual effects stage 4 (HUD effects)
+            slowMult = 0.7f;
         }
     }
 
@@ -284,7 +315,6 @@ public class Coolness : MonoBehaviour
 
     public void Fire()//when the player is set on fire, call this
     {
-        
         if(Rank == 'd')//if at rank D and is set on fire, then the players rank becomes F and is set to -750
         {
             coolness = -750;
@@ -305,6 +335,8 @@ public class Coolness : MonoBehaviour
         if (!IceMult)// If FireMult and IceMult activate at the same time they cancel each other out
         {
             FireMult = true;
+            Effect.FireEffect(10);
+            
         }
         else
         {
@@ -315,6 +347,7 @@ public class Coolness : MonoBehaviour
     public void FireMultOff()//when the fire effect ends, call this
     {
         FireMult = false;
+        Effect.burnTickTimer.Clear();
     }
 
     public void Ice()//when the player is hit with ice, call this
@@ -338,6 +371,9 @@ public class Coolness : MonoBehaviour
         if (!FireMult)// If FireMult and IceMult activate at the same time they cancel each other out
         {
             IceMult = true;
+            HypothermiaEffects();
+            playerScript.slowMult = slowMult;
+            Debug.Log(playerScript.slowMult);
         }
         else
         {
@@ -348,6 +384,8 @@ public class Coolness : MonoBehaviour
     public void IceMultOff()//when the ice effect on the player has ended, call this
     {
         IceMult = false;
+        playerScript.slowMult = 1;
+        Debug.Log(playerScript.slowMult);
     }
 
     //void AddMult()//add a function for every unique multiplier

@@ -21,7 +21,7 @@ public class Health : MonoBehaviour
         else if (amount > 0)
         {
             this.Player_health -= amount;
-            Debug.Log("Taking fire damage");
+            
         }
 
         if (Player_health < 1)

@@ -12,7 +12,7 @@ public class ElementEffects : MonoBehaviour
     public int fireDmg = 1;
     public float slowMult = 1f;
 
-    public List<int> burnTickTimer = new List<int>();
+    public List<int> burnTickTimer = new List<int>(); //Holds the burn ticks
 
     // Start is called before the first frame update
     void Start()
@@ -28,30 +28,22 @@ public class ElementEffects : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Burning == true)
-        {
-            FireEffect();
-        }
-    }
 
-    public void FireEffect()
-    {
-        
-        //Coolness.Fire();
-        ApplyBurn(5);
-        health.Damage(fireDmg);
-        
-        
+    }
+    public void FireEffect(int fireTick) 
+    {  
+        ApplyBurn(fireTick);
         
     }
     public void IceEffects()
     {
-        slowMult = 0.90f;
+        
     }
 
-    public void ApplyBurn(int ticks)
+    public void ApplyBurn(int ticks) //Adds the ticks into Burnticktimer list
+                                     //To use call ApplyBurn and pass it a number of ticks it should burn for
     {
-        if (burnTickTimer.Count <= 0)
+        if (burnTickTimer.Count <= 0) 
         {
             burnTickTimer.Add(ticks);
             StartCoroutine(Burn());
@@ -61,17 +53,17 @@ public class ElementEffects : MonoBehaviour
             burnTickTimer.Add(ticks);
         }
     }
-    IEnumerator Burn()
+    IEnumerator Burn() 
     {
         while (burnTickTimer.Count > 0)
         {
-            for (int i = 0; i < burnTickTimer.Count; i++)
+            for (int i = 0; i < burnTickTimer.Count; i++) 
             {
                 burnTickTimer[i]--;
             }
-            health.Damage(fireDmg);
-            burnTickTimer.RemoveAll(tick => tick == 0);
-            yield return new WaitForSeconds(0.75f);
+            health.Damage(fireDmg); //Calls Damage method to deal damage while burn is applied
+            burnTickTimer.RemoveAll(tick => tick == 0); //Removes all parts of the list once its empty
+            yield return new WaitForSeconds(0.75f); //Waits for set amount of seconds before running it again
         }
     }
 }

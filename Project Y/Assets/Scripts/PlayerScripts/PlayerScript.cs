@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour
     private Rigidbody2D rb;
     public ElementEffects effects;
 
-    private float slowMult;
+    public float slowMult;
 
     private float horizontalInput;
     private float verticalInput;
@@ -38,8 +38,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        slowMult = effects.slowMult;
-        Debug.Log(slowMult);
+        
         //GetAxis returns a float between +-1 based on button inputs
         //use GetAxisRaw for snappier movement
         //horizontalInput = Input.GetAxisRaw("Horizontal");

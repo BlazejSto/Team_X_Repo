@@ -9,11 +9,11 @@ public class ItemDictionary : MonoBehaviour
     void Start()
     { 
         Dictionary<string, int> CollectableItems = new Dictionary<string, int>();
-        CollectableItems.Add("Item1", 0);
-        CollectableItems.Add("Item2", 0);
-        CollectableItems.Add("Item3", 0);
-        CollectableItems.Add("Item4", 0);
-        CollectableItems.Add("Item5", 0);
+        CollectableItems.Add("BiggerItem", 0);
+        CollectableItems.Add("DoubleItem", 0);
+        CollectableItems.Add("FasterItem", 0);
+        CollectableItems.Add("PiercingItem", 0);
+        CollectableItems.Add("CoolMeterItem", 0);
 
         Debug.Log(CollectableItems["Item1"]);
 

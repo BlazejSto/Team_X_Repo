@@ -24,7 +24,7 @@ public class ItemEffects : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D coll)
     {
         //if (coll.gameObject.tag == "Bigger")
-     //   {
+     //   { bobb
         //    rigidBody.transform.localScale = new Vector3(2, 2, 2);
        //     Destroy(coll.gameObject);
        // }

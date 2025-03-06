@@ -82,6 +82,10 @@ public class PlayerAttack : MonoBehaviour
                 {
                     LightKDFists.SetActive(lightAttacking);
                 }
+                else if (Melee == "Knife")
+                {
+                    LightKnife.SetActive(lightAttacking);
+                }
             }
         }
 
@@ -102,6 +106,10 @@ public class PlayerAttack : MonoBehaviour
                 {
                     HeavyKDFists.SetActive(heavyAttacking);
                 }
+                else if (Melee == "Knife")
+                {
+                    HeavyKnife.SetActive(heavyAttacking);
+                }
             }
         }
     }
@@ -117,6 +125,10 @@ public class PlayerAttack : MonoBehaviour
         {
             HeavyKDFists.SetActive(heavyAttacking);
         }
+        else if (Melee == "Knife")
+        {
+            HeavyKnife.SetActive(heavyAttacking);
+        }
     }
     private void LightAttack()
     {
@@ -128,6 +140,10 @@ public class PlayerAttack : MonoBehaviour
         else if (Melee == "KDFists")
         {
             LightKDFists.SetActive(lightAttacking);
+        }
+        else if (Melee == "Knife")
+        {
+            LightKnife.SetActive(lightAttacking);
         }
     }
 }

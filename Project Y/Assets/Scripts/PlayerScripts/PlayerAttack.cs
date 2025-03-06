@@ -14,6 +14,9 @@ public class PlayerAttack : MonoBehaviour
     GameObject LightKnife = default;//Light and Heavy Knife
     GameObject HeavyKnife = default;
 
+    GameObject LightBBat = default;//Light and Heavy Knife
+    GameObject HeavyBBat = default;
+
     private bool lightAttacking = false;
     private bool heavyAttacking = false;
 
@@ -30,6 +33,7 @@ public class PlayerAttack : MonoBehaviour
     //"Knife"
     //"BBat"
     //"Crowbar"
+
     public string Ranged = "Revolver"; //Change to one of the specified to change Weapons
     //List of Ranged Weapons:
     //"Revolver"
@@ -49,6 +53,9 @@ public class PlayerAttack : MonoBehaviour
 
         LightKnife = transform.GetChild(4).gameObject; //Knife Hitboxes
         HeavyKnife = transform.GetChild(5).gameObject;
+
+        LightBBat = transform.GetChild(6).gameObject; //BaseballBat Hitboxes
+        HeavyBBat = transform.GetChild(7).gameObject;
 
     }
 
@@ -86,6 +93,10 @@ public class PlayerAttack : MonoBehaviour
                 {
                     LightKnife.SetActive(lightAttacking);
                 }
+                else if (Melee == "BBat")
+                {
+                    LightBBat.SetActive(lightAttacking);
+                }
             }
         }
 
@@ -102,13 +113,17 @@ public class PlayerAttack : MonoBehaviour
                 {
                     HeavyAttackArea.SetActive(heavyAttacking);
                 }
-                if (Melee == "Fists")
+                if (Melee == "KDFists")
                 {
                     HeavyKDFists.SetActive(heavyAttacking);
                 }
                 else if (Melee == "Knife")
                 {
                     HeavyKnife.SetActive(heavyAttacking);
+                }
+                else if (Melee == "BBat")
+                {
+                    HeavyBBat.SetActive(heavyAttacking);
                 }
             }
         }
@@ -121,13 +136,17 @@ public class PlayerAttack : MonoBehaviour
         {
             HeavyAttackArea.SetActive(heavyAttacking);
         }
-        if (Melee == "Fists")
+        if (Melee == "KDFists")
         {
             HeavyKDFists.SetActive(heavyAttacking);
         }
         else if (Melee == "Knife")
         {
             HeavyKnife.SetActive(heavyAttacking);
+        }
+        else if (Melee == "BBat")
+        {
+            HeavyBBat.SetActive(heavyAttacking);
         }
     }
     private void LightAttack()
@@ -144,6 +163,10 @@ public class PlayerAttack : MonoBehaviour
         else if (Melee == "Knife")
         {
             LightKnife.SetActive(lightAttacking);
+        }
+        else if (Melee == "BBat")
+        {
+            LightBBat.SetActive(lightAttacking);
         }
     }
 }

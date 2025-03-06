@@ -14,8 +14,11 @@ public class PlayerAttack : MonoBehaviour
     GameObject LightKnife = default;//Light and Heavy Knife
     GameObject HeavyKnife = default;
 
-    GameObject LightBBat = default;//Light and Heavy Knife
+    GameObject LightBBat = default;//Light and Heavy BaseballBat
     GameObject HeavyBBat = default;
+
+    GameObject LightCrowbar = default;//Light and Heavy Crowbar
+    GameObject HeavyCrowbar = default;
 
     private bool lightAttacking = false;
     private bool heavyAttacking = false;
@@ -57,6 +60,9 @@ public class PlayerAttack : MonoBehaviour
         LightBBat = transform.GetChild(6).gameObject; //BaseballBat Hitboxes
         HeavyBBat = transform.GetChild(7).gameObject;
 
+        LightCrowbar = transform.GetChild(8).gameObject; //Crowbar Hitboxes
+        HeavyCrowbar = transform.GetChild(9).gameObject;
+
     }
 
     // Update is called once per frame
@@ -97,6 +103,10 @@ public class PlayerAttack : MonoBehaviour
                 {
                     LightBBat.SetActive(lightAttacking);
                 }
+                else if (Melee == "Crowbar")
+                {
+                    LightCrowbar.SetActive(lightAttacking);
+                }
             }
         }
 
@@ -125,6 +135,10 @@ public class PlayerAttack : MonoBehaviour
                 {
                     HeavyBBat.SetActive(heavyAttacking);
                 }
+                else if (Melee == "Crowbar")
+                {
+                    HeavyCrowbar.SetActive(heavyAttacking);
+                }
             }
         }
     }
@@ -148,6 +162,10 @@ public class PlayerAttack : MonoBehaviour
         {
             HeavyBBat.SetActive(heavyAttacking);
         }
+        else if (Melee == "Crowbar")
+        {
+            HeavyCrowbar.SetActive(heavyAttacking);
+        }
     }
     private void LightAttack()
     {
@@ -167,6 +185,10 @@ public class PlayerAttack : MonoBehaviour
         else if (Melee == "BBat")
         {
             LightBBat.SetActive(lightAttacking);
+        }
+        else if (Melee == "Crowbar")
+        {
+            LightCrowbar.SetActive(lightAttacking);
         }
     }
 }

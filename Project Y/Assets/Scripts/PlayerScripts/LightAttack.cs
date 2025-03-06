@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LightAttack : MonoBehaviour
 {
-    private int lightAttackDamage = 5;
+    private float lightAttackDamage = 5;
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if(collider.GetComponent<EnemyHealth>() != null)

@@ -5,8 +5,15 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
 
-    private GameObject LightAttackArea = default;
+    private GameObject LightAttackArea = default;//Light and Heavy Fists
     private GameObject HeavyAttackArea = default;
+
+    GameObject LightKDFists = default;//Light and Heavy Knuckle Dusters
+    GameObject HeavyKDFists = default;
+
+    GameObject LightKnife = default;//Light and Heavy Knife
+    GameObject HeavyKnife = default;
+
     private bool lightAttacking = false;
     private bool heavyAttacking = false;
 
@@ -14,11 +21,35 @@ public class PlayerAttack : MonoBehaviour
     private float timeToHeavyAttack = 0.75f;
     private float timer = 0f;
 
+    public float DamageMult = 1f;
+
+    public string Melee = "Fists"; //Change to one of the specified to change Weapons
+    //List of Melee Weapons:
+    //"Fists"
+    //"KDFists"
+    //"Knife"
+    //"BBat"
+    //"Crowbar"
+    public string Ranged = "Revolver"; //Change to one of the specified to change Weapons
+    //List of Ranged Weapons:
+    //"Revolver"
+    //"TGun"
+    //"Colt"
+    //"Shotgun"
+    //"Flame"
+
     // Start is called before the first frame update
     void Start()
     {
-        LightAttackArea = transform.GetChild(0).gameObject;
+        LightAttackArea = transform.GetChild(0).gameObject; //Fist Hitboxes
         HeavyAttackArea = transform.GetChild(1).gameObject;
+
+        LightKDFists = transform.GetChild(2).gameObject; //KnuckleDuster Hitboxes
+        HeavyKDFists = transform.GetChild(3).gameObject;
+
+        LightKnife = transform.GetChild(4).gameObject; //Knife Hitboxes
+        HeavyKnife = transform.GetChild(5).gameObject;
+
     }
 
     // Update is called once per frame
@@ -42,7 +73,15 @@ public class PlayerAttack : MonoBehaviour
             {
                 timer = 0;
                 lightAttacking = false;
-                LightAttackArea.SetActive(lightAttacking);
+
+                if (Melee == "Fists")
+                {
+                    LightAttackArea.SetActive(lightAttacking);
+                }
+                else if (Melee == "KDFists")
+                {
+                    LightKDFists.SetActive(lightAttacking);
+                }
             }
         }
 
@@ -54,7 +93,15 @@ public class PlayerAttack : MonoBehaviour
             {
                 timer = 0;
                 heavyAttacking = false;
-                HeavyAttackArea.SetActive(heavyAttacking);
+
+                if (Melee == "Fists")
+                {
+                    HeavyAttackArea.SetActive(heavyAttacking);
+                }
+                if (Melee == "Fists")
+                {
+                    HeavyKDFists.SetActive(heavyAttacking);
+                }
             }
         }
     }
@@ -62,11 +109,25 @@ public class PlayerAttack : MonoBehaviour
     private void HeavyAttack()
     {
         heavyAttacking = true;
-        HeavyAttackArea.SetActive(heavyAttacking);
+        if (Melee == "Fists")
+        {
+            HeavyAttackArea.SetActive(heavyAttacking);
+        }
+        if (Melee == "Fists")
+        {
+            HeavyKDFists.SetActive(heavyAttacking);
+        }
     }
     private void LightAttack()
     {
         lightAttacking = true;
-        LightAttackArea.SetActive(lightAttacking);
+        if (Melee == "Fists")
+        {
+            LightAttackArea.SetActive(lightAttacking);
+        }
+        else if (Melee == "KDFists")
+        {
+            LightKDFists.SetActive(lightAttacking);
+        }
     }
 }

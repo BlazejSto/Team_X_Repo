@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private int Enemy_health = 10;
+
+    [SerializeField] private float Enemy_health = 10;
+
+    GameObject player;// player
+    public PlayerAttack Damage;//reference to PlayerAttack
+
+
+    void Start()
+    {
+        player = Health.GetInstance().gameObject;//finds the player
+        Damage = player.GetComponent<PlayerAttack>();//gets the PlayerAttack from the player
+    }
+
     void Update()
     {
 
     }
 
-    public void Enemy_Damage(int amount)
+    public void Enemy_Damage(float amount)
     {
 
         if (amount < 0)
@@ -19,7 +31,7 @@ public class EnemyHealth : MonoBehaviour
         }
         else if (amount > 0)
         {
-            Enemy_health -= amount;
+            Enemy_health -= amount*Damage.DamageMult;
         }
 
         if (Enemy_health < 1)

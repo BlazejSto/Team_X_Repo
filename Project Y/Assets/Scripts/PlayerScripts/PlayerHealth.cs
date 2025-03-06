@@ -4,9 +4,21 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    private static Health instance; //decalares instance for reference to player
+    public static Health GetInstance() { return instance; }//reference that can be accessed by other objects
+
+
     [SerializeField] private int Player_health = 100;
 
     private int Player_MAX_HEALTH = 100;
+
+
+
+    private void Awake()
+    {
+        instance = this;//creates the instance
+    }
+
     void Update()
     {
 

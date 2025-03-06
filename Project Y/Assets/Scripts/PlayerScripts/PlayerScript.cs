@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    
+
     private Rigidbody2D rb;
 
     private float horizontalInput;

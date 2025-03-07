@@ -8,15 +8,9 @@ public class Coolness : MonoBehaviour
     float coolness;
     float decayrate;
 
-    //bool F;
-    //bool D;
-    //bool C;
-    //bool B;
-    //bool A;
-    //bool S;
-    //bool H;
-
     char Rank;
+
+    int Hypothermia;
 
     int GunMult;
     public List<float> GunMultList;
@@ -28,6 +22,9 @@ public class Coolness : MonoBehaviour
     bool ComboMult;
     float ComboMultVal;
     float ComboMultCounter;
+
+    bool FireMult;
+    bool IceMult;
 
     // Start is called before the first frame update
     void Start()
@@ -52,12 +49,22 @@ public class Coolness : MonoBehaviour
         ComboMult = false;
         ComboMultVal = 1.5f;
         ComboMultCounter = 0;
+
+        FireMult = false;
+        IceMult = false;
+
+        Hypothermia = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         RankCheck();
+
+        if(Rank == 'h')
+        {
+            HypothermiaCheck();
+        }
 
         GunMultDecay();
         ComboMultDecay();
@@ -86,85 +93,108 @@ public class Coolness : MonoBehaviour
             coolness = -1000;
         }
 
-        if(coolness > 6000)// can't go above 6000
+        if (coolness > 6000)
         {
-            coolness = 6000;
+
+        }
+
+        if(coolness > 7000)// can't go above 6000
+        {
+            coolness = 7000;
         }
         
     }
 
     void RankCheck()//updates the player's rank based on their coolness
     {
-        if(coolness < 0)//Less than 0 is rank F
+        if (coolness < 0)//Less than 0 is rank F
         {
-            //F = true;
-            //D = false;
-            //C = false;
-            //B = false;
-            //A = false;
-            //S = false;
-
             Rank = 'f';
         }
 
-        else if (coolness >= 0 && coolness < 1000)// 0 - 999 is D
+        else if (coolness >= 0 && coolness < 1000)// 0 - 999 is D, 1000 
         {
-            //F = false;
-            //D = true;
-            //C = false;
-            //B = false;
-            //A = false;
-            //S = false;
-
             Rank = 'd';
         }
 
-        else if (coolness >= 1000 && coolness < 2000)// 1000 - 1999 is C
+        else if (coolness >= 1000 && coolness < 2000)// 1000 - 1999 is C, 1000
         {
-            //F = false;
-            //D = false;
-            //C = true;
-            //B = false;
-            //A = false;
-            //S = false;
-
             Rank = 'c';
         }
 
-        else if(coolness >= 2000 && coolness < 3500)// 2000 - 3499 is B
+        else if (coolness >= 2000 && coolness < 3500)// 2000 - 3499 is B, 1500
         {
-            //F = false;
-            //D = false;
-            //C = false;
-            //B = true;
-            //A = false;
-            //S = false;
-
             Rank = 'b';
         }
 
-        else if(coolness >= 3500 && coolness < 5000)// 3500 - 4999 is A
+        else if (coolness >= 3500 && coolness < 5000)// 3500 - 4999 is A. 1500
         {
-            //F = false;
-            //D = false;
-            //C = false;
-            //B = false;
-            //A = true;
-            //S = false;
-
             Rank = 'a';
         }
 
-        else if(coolness >= 5000)// 5000 + is S
+        else if (coolness >= 5000)// 5000 + is S 1000
         {
-            //F = false;
-            //D = false;
-            //C = false;
-            //B = false;
-            //A = false;
-            //S = true;
-
             Rank = 's';
+        }
+
+        else if (coolness >= 6000)
+        {
+            Rank = 'h';
+        }
+    }
+
+    void HypothermiaCheck()
+    {
+        if(coolness > 6100)
+        {
+            Hypothermia = 1;
+        }
+        if (coolness > 6200)
+        {
+            Hypothermia = 2;
+        }
+        if (coolness > 6300)
+        {
+            Hypothermia = 3;
+        }
+        if (coolness > 6400)
+        {
+            Hypothermia = 4;
+        }
+        if (coolness > 6500)
+        {
+            Hypothermia = 5;
+        }
+    }
+
+    void HypothermiaEffects()
+    {
+        if (Hypothermia >= 1)
+        {
+            //Damage received and dealt increased (1.5x?)  <----need public stat to change
+            //Item efficiency for cold items now 1 <---- need public stat to change (sprint 3?)
+            //Ice visual effects stage 1 (HUD effects)
+        }
+        if(Hypothermia >= 2)
+        {
+            //Damage received and dealt increased further (now 2x?) <---- need public stat to change
+            //Ice visual effects stage 2(HUD effects)
+        }
+        if (Hypothermia >= 3)
+        {
+            //Item efficiency for cold now 2 <---- need public stat to change (sprint 3?)
+            //Health Recovery of any kind reduced (0.75x?) <---- need public stat to change
+            //Ice visual effects stage 3(HUD effects)
+        }
+        if (Hypothermia >= 4)
+        {
+            //Speed Reduced <---- need public stat to change
+            //Warning to the player about High Hypothermia? (HUD effects)
+        }
+        if (Hypothermia > 5)
+        {
+            //The damaging effect of Hypothermia (Death or DOT) <---- need public stat to change
+            //Ice visual effects stage 4 (HUD effects)
         }
     }
 
@@ -192,6 +222,16 @@ public class Coolness : MonoBehaviour
         if (mult <= 0)// if the multiplier is 0 after everything then it becomes 1 // THIS ALWAYS GOES LAST
         {
             mult = 1;
+        }
+
+        if (FireMult)
+        {
+            mult *= 0.8f;
+        }
+
+        if(IceMult)
+        {
+            mult *= 1.2f;
         }
 
         return mult;
@@ -239,6 +279,73 @@ public class Coolness : MonoBehaviour
         {
             ComboMult = false;
         }
+    }
+
+    public void Fire()//when the player is set on fire, call this
+    {
+        if(Rank == 'd')//if at rank D and is set on fire, then the players rank becomes F and is set to -750
+        {
+            coolness = -750;
+            Rank = 'f';
+        }
+
+        else if (Rank == 'h')//if the player is in Hypothermia and set on fire, their coolness is reduced dramatically and their hypothermia stacks are all lost
+        {
+            coolness -= 2000;
+            Hypothermia = 0;
+        }
+
+        else//most of the time the player will only lose 1500 coolness when set on fire
+        {
+            coolness -= 1500;
+        }
+
+        if (!IceMult)// If FireMult and IceMult activate at the same time they cancel each other out
+        {
+            FireMult = true;
+        }
+        else
+        {
+            IceMult = false;
+        }
+    }
+
+    public void FireMultOff()//when the fire effect ends, call this
+    {
+        FireMult = false;
+    }
+
+    public void Ice()//when the player is hit with ice, call this
+    {
+        if (Rank == 'f')//if the players rank is f and is hit with ice, they are given a boost up to C skipping D
+        {
+            Rank = 'c';
+            coolness = 1250;
+        }
+
+        else if (Rank == 'h')//if the player is hit with ice in Hypothermia, they are given coolness. Might change to max out Hypothermia in the future, but its set to this for now for testing
+        {
+            coolness += 500;
+        }
+
+        else//most of the time the player will gain 1500 coolness when hit with ice
+        {
+            coolness += 1500;
+        }
+
+        if (!FireMult)// If FireMult and IceMult activate at the same time they cancel each other out
+        {
+            IceMult = true;
+        }
+        else
+        {
+            FireMult = false ;
+        }
+    }
+
+    public void IceMultOff()//when the ice effect on the player has ended, call this
+    {
+        IceMult = false;
     }
 
     //void AddMult()//add a function for every unique multiplier

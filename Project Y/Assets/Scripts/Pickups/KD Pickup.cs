@@ -13,6 +13,8 @@ public class KDPickup : MonoBehaviour
 
     [SerializeField] private string Weapon = "KDFists";
 
+    public AudioSource PickupSound;
+
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,7 @@ public class KDPickup : MonoBehaviour
     {
         Damage.Melee = Weapon;//changes Melee variable to the new weapon
         Destroy(gameObject);//Destroys pickup once used
+        PickupSound.Play();//Plays a sound when the pickup is used
     }
 
     void Inputs()

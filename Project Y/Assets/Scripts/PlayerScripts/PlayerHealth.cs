@@ -33,6 +33,7 @@ public class Health : MonoBehaviour
         else if (amount > 0)
         {
             this.Player_health -= amount;
+            
         }
 
         if (Player_health < 1)

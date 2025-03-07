@@ -6,6 +6,13 @@ TagManager:
   tags:
   - playerAttack
   - EnemyHealth
+  - Bigger (Item)
+  - Faster (Item)
+  - Piercing (Item)
+  - Double (Item)
+  - CoolMeterDependent (Item)
+  - PistolTag
+  - SMGTag
   layers:
   - Default
   - TransparentFX

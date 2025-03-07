@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LightAttack : MonoBehaviour
 {
-    private float lightAttackDamage = 5;
+    [SerializeField] private float lightAttackDamage = 5;
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if(collider.GetComponent<EnemyHealth>() != null)

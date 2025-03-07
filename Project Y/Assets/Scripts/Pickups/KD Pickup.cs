@@ -44,7 +44,6 @@ public class KDPickup : MonoBehaviour
     void Inputs()
     {
         interaction = Input.GetAxis("Submit"); //interact key atm == Enter
-        Debug.Log(interaction);
     }
 
     void OnTriggerEnter2D(Collider2D coll)

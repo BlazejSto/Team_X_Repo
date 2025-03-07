@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HeavyAttackArea : MonoBehaviour
 {
-    private float heavyAttackDamage = 10;
+    [SerializeField] private float heavyAttackDamage = 10;
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.GetComponent<EnemyHealth>() != null)

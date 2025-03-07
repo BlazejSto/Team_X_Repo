@@ -23,8 +23,10 @@ public class PlayerAttack : MonoBehaviour
     private bool lightAttacking = false;
     private bool heavyAttacking = false;
 
-    private float timeToLightAttack = 0.25f;
-    private float timeToHeavyAttack = 0.75f;
+    private float timeToLightAttack = 0.15f;
+    private float LAcooldown = 0.3f;
+    private float timeToHeavyAttack = 0.5f;
+    private float HAcooldown = 1f;
     private float timer = 0f;
 
     public float DamageMult = 1f;
@@ -45,6 +47,11 @@ public class PlayerAttack : MonoBehaviour
     //"Shotgun"
     //"Flame"
 
+
+    GameObject player;// player
+    public Coolness coolness;//reference to Coolness
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,17 +70,20 @@ public class PlayerAttack : MonoBehaviour
         LightCrowbar = transform.GetChild(8).gameObject; //Crowbar Hitboxes
         HeavyCrowbar = transform.GetChild(9).gameObject;
 
+        player = Health.GetInstance().gameObject;//finds the player
+        coolness = player.GetComponent<Coolness>();//gets the Coolness from the player
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.J))
+        if(Input.GetKeyDown(KeyCode.J)&&!lightAttacking&&!heavyAttacking)
         {
             LightAttack();
         }
 
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K) && !lightAttacking && !heavyAttacking)
         {
             HeavyAttack();
         }
@@ -84,29 +94,31 @@ public class PlayerAttack : MonoBehaviour
 
             if(timer >= timeToLightAttack)
             {
-                timer = 0;
-                lightAttacking = false;
-
                 if (Melee == "Fists")
                 {
-                    LightAttackArea.SetActive(lightAttacking);
+                    LightAttackArea.SetActive(false);
                 }
                 else if (Melee == "KDFists")
                 {
-                    LightKDFists.SetActive(lightAttacking);
+                    LightKDFists.SetActive(false);
                 }
                 else if (Melee == "Knife")
                 {
-                    LightKnife.SetActive(lightAttacking);
+                    LightKnife.SetActive(false);
                 }
                 else if (Melee == "BBat")
                 {
-                    LightBBat.SetActive(lightAttacking);
+                    LightBBat.SetActive(false);
                 }
                 else if (Melee == "Crowbar")
                 {
-                    LightCrowbar.SetActive(lightAttacking);
+                    LightCrowbar.SetActive(false);
                 }
+            }
+            if(timer >= LAcooldown)
+            {
+                timer = 0;
+                lightAttacking = false;
             }
         }
 
@@ -116,29 +128,33 @@ public class PlayerAttack : MonoBehaviour
 
             if (timer >= timeToHeavyAttack)
             {
-                timer = 0;
-                heavyAttacking = false;
+                
 
                 if (Melee == "Fists")
                 {
-                    HeavyAttackArea.SetActive(heavyAttacking);
+                    HeavyAttackArea.SetActive(false);
                 }
                 if (Melee == "KDFists")
                 {
-                    HeavyKDFists.SetActive(heavyAttacking);
+                    HeavyKDFists.SetActive(false);
                 }
                 else if (Melee == "Knife")
                 {
-                    HeavyKnife.SetActive(heavyAttacking);
+                    HeavyKnife.SetActive(false);
                 }
                 else if (Melee == "BBat")
                 {
-                    HeavyBBat.SetActive(heavyAttacking);
+                    HeavyBBat.SetActive(false);
                 }
                 else if (Melee == "Crowbar")
                 {
-                    HeavyCrowbar.SetActive(heavyAttacking);
+                    HeavyCrowbar.SetActive(false);
                 }
+            }
+            if (timer >= HAcooldown)
+            {
+                timer = 0;
+                heavyAttacking = false;
             }
         }
     }
@@ -149,6 +165,7 @@ public class PlayerAttack : MonoBehaviour
         if (Melee == "Fists")
         {
             HeavyAttackArea.SetActive(heavyAttacking);
+            coolness.CoolnessIncrease(50);
         }
         if (Melee == "KDFists")
         {
@@ -173,6 +190,7 @@ public class PlayerAttack : MonoBehaviour
         if (Melee == "Fists")
         {
             LightAttackArea.SetActive(lightAttacking);
+            coolness.CoolnessIncrease(500);
         }
         else if (Melee == "KDFists")
         {

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class ElementEffects : MonoBehaviour 
 {
-    public Coolness Coolness;
-    public Health health;
-    public PlayerScript playerScript;
+    GameObject player;// player
+
+    public Coolness Coolness;//reference to Coolness
+    public Health health;//reference to Health
+    public PlayerScript playerScript;//reference to PlayerScript
 
     public bool Burning, Freezing;
     public int fireDmg = 1;
@@ -17,7 +19,10 @@ public class ElementEffects : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        player = Health.GetInstance().gameObject;//finds the player
+        Coolness = player.GetComponent<Coolness>();//gets the Coolness from the player
+        health = player.GetComponent<Health>();//gets the Health from the player
+        playerScript = player.GetComponent<PlayerScript>();//gets the PlayerScript from the player
     }
 
     // Update is called once per frame

@@ -79,6 +79,8 @@ public class Coolness : MonoBehaviour
 
         GunMultDecay();
         ComboMultDecay();
+
+        //Testing stuff
         if (Input.GetKey(KeyCode.F))
         {
             Fire();
@@ -96,9 +98,13 @@ public class Coolness : MonoBehaviour
         {
             IceMultOff();
         }
+
+
+        //Debug stuff
         Debug.Log("Rank"+Rank);
         Debug.Log("GunMult"+GunMult);
         Debug.Log("ComboMult"+ComboMult);
+        Debug.Log("Hypothermia" + Hypothermia);
     }
 
     private void FixedUpdate()
@@ -114,6 +120,7 @@ public class Coolness : MonoBehaviour
         
         float mult = MultCalc();
         coolness = coolness + (actionval * mult);
+        Debug.Log("coolness: "+coolness);
 
         if (coolness < -1000)// can't go below -1000
         {
@@ -159,7 +166,7 @@ public class Coolness : MonoBehaviour
             Rank = 'a';
         }
 
-        else if (coolness >= 5000)// 5000 + is S 1000
+        else if (coolness >= 5000 && coolness < 6000)// 5000 + is S 1000
         {
             Rank = 's';
         }
@@ -172,23 +179,23 @@ public class Coolness : MonoBehaviour
 
     void HypothermiaCheck()
     {
-        if(coolness > 6100)
+        if(coolness > 6200)
         {
             Hypothermia = 1;
         }
-        if (coolness > 6200)
+        if (coolness > 6400)
         {
             Hypothermia = 2;
         }
-        if (coolness > 6300)
+        if (coolness > 6600)
         {
             Hypothermia = 3;
         }
-        if (coolness > 6400)
+        if (coolness > 6800)
         {
             Hypothermia = 4;
         }
-        if (coolness > 6500)
+        if (coolness > 7000)
         {
             Hypothermia = 5;
         }

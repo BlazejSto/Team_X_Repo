@@ -420,6 +420,26 @@ PrefabInstance:
       propertyPath: dashDistance
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 1547817515086287080, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 3627101052158391917, guid: d6f3684e947d86243a15f0c503733497, type: 3}
+    - target: {fileID: 1547817515086287080, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
+      propertyPath: fireRate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547817515086287080, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
+      propertyPath: bulletSpawn
+      value: 
+      objectReference: {fileID: 7253963248940799580}
+    - target: {fileID: 1547817515086287080, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
+      propertyPath: smgFireRate
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547817515086287080, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
+      propertyPath: pistolFireRate
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 3480970341495208893, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -494,6 +514,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
+--- !u!1 &7253963248940799580 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8990589718915568308, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
+  m_PrefabInstance: {fileID: 7253963248940799579}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

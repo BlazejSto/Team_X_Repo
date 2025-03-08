@@ -25,7 +25,7 @@ public class PlayerScript : MonoBehaviour
     public float dashDelay;
     float nextDash = 0;
 
-   
+    public AudioSource DashSound;
 
 
     // Start is called before the first frame update
@@ -82,6 +82,7 @@ public class PlayerScript : MonoBehaviour
             nextDash = Time.time + dashDelay;
 
             StartCoroutine(StopDash());
+            DashSound.Play();
             Debug.Log("Is dashing");
         }
 

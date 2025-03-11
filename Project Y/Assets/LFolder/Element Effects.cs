@@ -38,11 +38,12 @@ public class ElementEffects : MonoBehaviour
     public void FireEffect(int fireTick) 
     {  
         ApplyBurn(fireTick);
+        Coolness.Fire();
         
     }
-    public void IceEffects()
+    public void IceEffect()
     {
-        
+        Coolness.Ice();//needs an effect start and end so it can be turned off
     }
 
     public void ApplyBurn(int ticks) //Adds the ticks into Burnticktimer list
@@ -69,6 +70,10 @@ public class ElementEffects : MonoBehaviour
             health.Damage(fireDmg); //Calls Damage method to deal damage while burn is applied
             burnTickTimer.RemoveAll(tick => tick == 0); //Removes all parts of the list once its empty
             yield return new WaitForSeconds(0.75f); //Waits for set amount of seconds before running it again
+        }
+        if (burnTickTimer.Count <= 0)
+        {
+            Coolness.FireMultOff();
         }
     }
 }

@@ -13,6 +13,8 @@ TagManager:
   - CoolMeterDependent (Item)
   - PistolTag
   - SMGTag
+  - Fire
+  - Ice
   layers:
   - Default
   - TransparentFX

@@ -10,7 +10,7 @@ public class PlayerScript : MonoBehaviour
     private Rigidbody2D rb;
     public ElementEffects effects;
 
-    public float slowMult;
+    public float slowMult; //For Coolmetre
 
     private float horizontalInput;
     private float verticalInput;
@@ -33,7 +33,7 @@ public class PlayerScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         effects = GetComponent<ElementEffects>();
-        effects.IceEffects();
+        effects.IceEffect();
 
     }
 

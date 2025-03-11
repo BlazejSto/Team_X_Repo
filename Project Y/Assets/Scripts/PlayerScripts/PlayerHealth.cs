@@ -8,9 +8,11 @@ public class Health : MonoBehaviour
     public static Health GetInstance() { return instance; }//reference that can be accessed by other objects
 
 
-    [SerializeField] private int Player_health = 100;
+    [SerializeField] private float Player_health = 100;
 
-    private int Player_MAX_HEALTH = 100;
+    private float Player_MAX_HEALTH = 100;
+
+    public float DamageMult = 1; //For Coolmetre
 
 
 
@@ -24,7 +26,7 @@ public class Health : MonoBehaviour
 
     }
 
-    public void Damage(int amount)
+    public void Damage(float amount)
     {
         if (amount < 0)
         {
@@ -32,7 +34,7 @@ public class Health : MonoBehaviour
         }
         else if (amount > 0)
         {
-            this.Player_health -= amount;
+            this.Player_health -= (amount * DamageMult) ;
             
         }
 
@@ -41,7 +43,7 @@ public class Health : MonoBehaviour
             PlayerDeath();
         }
     }
-    public void Heal(int amount)
+    public void Heal(float amount)
     {
         if (amount < 0)
         {

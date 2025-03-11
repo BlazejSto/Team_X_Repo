@@ -29,6 +29,8 @@ public class Coolness : MonoBehaviour
 
     ElementEffects Effect;
     PlayerScript playerScript;
+    Health health;
+    PlayerAttack attack;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,8 @@ public class Coolness : MonoBehaviour
         Effect = GetComponent<ElementEffects>();
         playerScript = GetComponent<PlayerScript>();
         playerScript.slowMult = slowMult;
+        health = GetComponent<Health>();
+        attack = GetComponent<PlayerAttack>();
         //
         coolness = 0;
         decayrate = 1;
@@ -71,33 +75,32 @@ public class Coolness : MonoBehaviour
         
 
         RankCheck();
-
-        if(Rank == 'h')
-        {
-            HypothermiaCheck();
-        }
+        
+        HypothermiaCheck();
+        HypothermiaEffects();
+        
 
         GunMultDecay();
         ComboMultDecay();
 
-        //Testing stuff
-        if (Input.GetKey(KeyCode.F))
-        {
-            Fire();
-        }
-        if (Input.GetKey(KeyCode.H))
-        {
-            FireMultOff();
-        }
-        if (Input.GetKey(KeyCode.V))
-        {
-            Ice();
-            Hypothermia = 5;
-        }
-        if (Input.GetKey(KeyCode.X))
-        {
-            IceMultOff();
-        }
+        ////Testing stuff
+        //if (Input.GetKey(KeyCode.F))
+        //{
+        //    Fire();
+        //}
+        //if (Input.GetKey(KeyCode.H))
+        //{
+        //    FireMultOff();
+        //}
+        //if (Input.GetKey(KeyCode.V))
+        //{
+        //    Ice();
+        //    Hypothermia = 5;
+        //}
+        //if (Input.GetKey(KeyCode.X))
+        //{
+        //    IceMultOff();
+        //}
 
 
         //Debug stuff
@@ -203,37 +206,51 @@ public class Coolness : MonoBehaviour
 
     void HypothermiaEffects()
     {
-        if (Hypothermia >= 1)
+        if (Hypothermia == 0)
         {
-            //Damage received and dealt increased (1.5x?)  <----need public stat to change
-            //Item efficiency for cold items now 1 <---- need public stat to change (sprint 3?)
-            //Ice visual effects stage 1 (HUD effects)
-            slowMult = 0.9f;
+            playerScript.slowMult = 1;
+            attack.DamageMult = 1;
+            health.DamageMult = 1;
         }
-        if(Hypothermia >= 2)
+
+        else
         {
-            //Damage received and dealt increased further (now 2x?) <---- need public stat to change
-            //Ice visual effects stage 2(HUD effects)
-            slowMult = 0.85f;
-        }
-        if (Hypothermia >= 3)
-        {
-            //Item efficiency for cold now 2 <---- need public stat to change (sprint 3?)
-            //Health Recovery of any kind reduced (0.75x?) <---- need public stat to change
-            //Ice visual effects stage 3(HUD effects)
-            slowMult = 0.8f;
-        }
-        if (Hypothermia >= 4)
-        {
-            //Speed Reduced <---- need public stat to change
-            //Warning to the player about High Hypothermia? (HUD effects)
-            slowMult = 0.75f;
-        }
-        if (Hypothermia > 5)
-        {
-            //The damaging effect of Hypothermia (Death or DOT) <---- need public stat to change
-            //Ice visual effects stage 4 (HUD effects)
-            slowMult = 0.7f;
+            if (Hypothermia >= 1)
+            {
+                //Damage received and dealt increased (1.5x?)  <----need public stat to change (sprint 3A)
+                attack.DamageMult = 1.5f;
+                health.DamageMult = 1.5f;
+                //Item efficiency for cold items now 1 <---- need public stat to change (sprint 3B)
+                //Ice visual effects stage 1 (HUD effects) <-------- Sprint 3B
+                
+            }
+            if (Hypothermia >= 2)
+            {
+                //Damage received and dealt increased further (now 2x?) <---- need public stat to change (sprint 3A)
+                attack.DamageMult = 2;
+                health.DamageMult = 2;
+                //Ice visual effects stage 2(HUD effects)<------- Sprint 3B
+
+            }
+            if (Hypothermia >= 3)
+            {
+                //Item efficiency for cold now 2 <---- need public stat to change (sprint 3B)
+                //Health Recovery of any kind reduced (0.75x?) <---- need public stat to change (sprint 3B)
+                //Ice visual effects stage 3(HUD effects) <------- (sprint 3B)
+                
+            }
+            if (Hypothermia >= 4)
+            {
+
+                //Warning to the player about High Hypothermia? (HUD effects)<----- (sprint 3B)
+                playerScript.slowMult = 0.75f;
+            }
+            if (Hypothermia >= 5)
+            {
+                //The damaging effect of Hypothermia (Death or DOT) <---- need public stat to change (Sprint 3B)
+                //Ice visual effects stage 4 (HUD effects)<--------- (sprint 3B)
+
+            }
         }
     }
 
@@ -342,7 +359,7 @@ public class Coolness : MonoBehaviour
         if (!IceMult)// If FireMult and IceMult activate at the same time they cancel each other out
         {
             FireMult = true;
-            Effect.FireEffect(10);
+            
             
         }
         else
@@ -378,7 +395,6 @@ public class Coolness : MonoBehaviour
         if (!FireMult)// If FireMult and IceMult activate at the same time they cancel each other out
         {
             IceMult = true;
-            HypothermiaEffects();
             playerScript.slowMult = slowMult;
             Debug.Log(playerScript.slowMult);
         }

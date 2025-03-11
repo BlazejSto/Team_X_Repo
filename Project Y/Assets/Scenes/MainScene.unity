@@ -8486,6 +8486,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1029078105314280811, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
+      propertyPath: cool
+      value: 65
+      objectReference: {fileID: 0}
     - target: {fileID: 1917719362403725306, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -8502,9 +8506,33 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4128787239200263860, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
+      propertyPath: cool
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4467079253003481737, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015087912697530838, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
+      propertyPath: cool
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5047745213463661751, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
+      propertyPath: cool
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290947991055440006, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
+      propertyPath: cool
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 5766536809543283890, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
+      propertyPath: cool
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034829247043942752, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
+      propertyPath: cool
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 6468840046713733842, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8545,6 +8573,10 @@ PrefabInstance:
     - target: {fileID: 6468840046713733842, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474664678798044634, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
+      propertyPath: cool
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 8553437381125450760, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
       propertyPath: m_IsActive

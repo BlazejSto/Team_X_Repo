@@ -8482,30 +8482,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 547418538737747, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917719362403725306, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2932769886149092285, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3123633590292060404, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3480970341495208893, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4467079253003481737, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6468840046713733842, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.25
@@ -8546,25 +8522,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8553437381125450760, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8657094765428829389, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8674735162465525777, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 9035092127137188036, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9106967227542886464, guid: d669583173bc30c4584792f1b485bdf8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

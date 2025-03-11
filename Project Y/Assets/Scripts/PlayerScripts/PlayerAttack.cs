@@ -165,7 +165,7 @@ public class PlayerAttack : MonoBehaviour
         if (Melee == "Fists")
         {
             HeavyAttackArea.SetActive(heavyAttacking);
-            coolness.CoolnessIncrease(50);
+           
         }
         if (Melee == "KDFists")
         {
@@ -190,7 +190,7 @@ public class PlayerAttack : MonoBehaviour
         if (Melee == "Fists")
         {
             LightAttackArea.SetActive(lightAttacking);
-            coolness.CoolnessIncrease(500);
+           
         }
         else if (Melee == "KDFists")
         {

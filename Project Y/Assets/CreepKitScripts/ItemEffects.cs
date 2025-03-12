@@ -1,6 +1,8 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 public class ItemEffects : MonoBehaviour
@@ -12,35 +14,40 @@ public class ItemEffects : MonoBehaviour
     //public float airControlMax = 1.5f;
 
     private float timer = 0f;
+
+    public Coolness coolmeter;
+    public ElementEffects effects;
+    public PlayerAttack weapon;
+    GameObject player;
     
-    public int HeavyAttackDamage = 10;
-    int LightAttackDamage = 5;
-    int RangedDamage;
 
-    bool IsWeaponFists;
-    bool IsWeaponKnuckles;
-    bool IsWeaponKnife;
-    bool IsWeaponBat;
-    bool IsWeaponCrowbar;
+    private bool IsLightAttacking = false;
+    private bool IsHeavyAttacking = false;
 
-    bool IsWeaponRevolver;
-    bool IsWeaponColt;
-    bool IsWeaponTommy;
-    bool IsWeaponShotGun;
-    bool IsWeaponFlamethrower;
+    private bool IsMelee = false;
+    private bool IsRanged = false;
 
 
 
 
-
-    private bool IsFire;
-    private bool IsIce;
+    //private bool IsFire;
+    //private bool IsIce;
     // Use this for initialization
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
-        IsFire = false;
-        IsIce = false;
+
+        effects = GetComponent<ElementEffects>();
+
+        coolmeter = player.GetComponent<Coolness>();
+
+        weapon = GetComponent<PlayerAttack>();
+
+
+        // if weapon.Melee == "Fists"
+            //if weapon.
+        //IsFire = false;
+        //IsIce = false;
     }
     // Update is called once per frame
     void Update()
@@ -48,24 +55,29 @@ public class ItemEffects : MonoBehaviour
     }
 
 
-    private void WhatWeapon()
+    
+    private 
+    
+    private void WeaponMultiplierCheck ()
     {
-        if ((IsWeaponFists) || (IsWeaponKnuckles) || (IsWeaponKnife))
+        if (IsMelee == true)
         {
-            bool LightAttacker = true;
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                IsLightAttacking = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                IsHeavyAttacking = true;
+            }
         }
 
-        if ((IsWeaponBat) || (IsWeaponCrowbar))
+        if (IsRanged == true)
         {
-            bool HeavyAttacker = true;
-        }
 
-        if ((IsWeaponRevolver) || (IsWeaponColt) || (IsWeaponTommy) || (IsWeaponShotGun || (IsWeaponFlamethrower)))
-        {
-            bool RangeedAttacker = true;
         }
     }
-
     private void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "Bigger")
@@ -105,8 +117,8 @@ public class ItemEffects : MonoBehaviour
                 //If statement here for if bullet or melee
                 //If statement if heavy or light damage
                 
-                HeavyAttackDamage = HeavyAttackDamage * 2;
-                Debug.Log(HeavyAttackDamage);
+                //HeavyAttackDamage = HeavyAttackDamage * 2;
+                //Debug.Log(HeavyAttackDamage);
             }
             timer = 0f;
         }
@@ -119,8 +131,8 @@ public class ItemEffects : MonoBehaviour
             {
                 //If statement here for if bullet or melee
                 //If statement if heavy or light damage
-                HeavyAttackDamage += HeavyAttackDamage * 4;
-                Debug.Log(HeavyAttackDamage);
+                //HeavyAttackDamage += HeavyAttackDamage * 4;
+               // Debug.Log(HeavyAttackDamage);
 
             }
             timer = 0f;
@@ -131,20 +143,20 @@ public class ItemEffects : MonoBehaviour
         {
             Destroy(coll.gameObject);
             timer += Time.deltaTime;
-            if (IsFire == true)
+            //if (IsFire == true)
             {
                 if(timer < 5f)
                 {
                     //If statement here for if bullet or melee
                     //If statement if heavy or light damage
-                    HeavyAttackDamage += HeavyAttackDamage * 5;
-                    Debug.Log(HeavyAttackDamage);
+                    //HeavyAttackDamage += HeavyAttackDamage * 5;
+                    //Debug.Log(HeavyAttackDamage);
                     //If coolness is bigger than 6100, turn this item effect off
                     //timer = 0f;
                     //coolness =+ value 
                 }
 
-                if (IsIce == true)
+                //if (IsIce == true)
                 {
                     //Get hypothermia value
                     //Add multiplier and apply to attacks

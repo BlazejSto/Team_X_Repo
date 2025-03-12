@@ -7,6 +7,15 @@ using UnityEngine;
 using UnityEngine.UIElements;
 public class ItemEffects : MonoBehaviour
 {
+    
+    // Current Progress as of 12/03/25
+    // Improvements - Fire & Ice could be used (idk how tho :( ) 
+    // Note - Item effects values for damage, speed and size can be altered if needed
+    
+    
+    
+    
+    
     Rigidbody2D rigidBody; // Rigid Body
     private float speed = 5.0f; // Speed 
 
@@ -85,6 +94,7 @@ public class ItemEffects : MonoBehaviour
             Mult = 2f;
         }
     }
+
     private void OnCollisionEnter2D(Collision2D coll) // Item Effects START
     {
         if (coll.gameObject.tag == "Bigger")
@@ -117,21 +127,21 @@ public class ItemEffects : MonoBehaviour
             {
                 if (IsRanged == true)
                 {
-                    ItemAttackMult = 1.5f;
+                    ItemAttackMult = 1.5f; // Ranged damage increases 
                 }
 
                 if (IsLightAttacking == true)
                 {
-                    ItemAttackMult = 1.25f;
+                    ItemAttackMult = 1.25f; // Light damage increases 
                 }
 
                 if (IsHeavyAttacking == true)
                 {
-                    ItemAttackMult = 2f;
+                    ItemAttackMult = 2f; // Heavy damage increases 
                 }
 
             }
-            timer = 0f;
+            timer = 0f; // End timer
         }
 
         if (coll.gameObject.tag == "Piercing")
@@ -142,21 +152,21 @@ public class ItemEffects : MonoBehaviour
             {
                 if (IsRanged == true)
                 {
-                    ItemAttackMult = 2.5f;
+                    ItemAttackMult = 2.5f; // Ranged damage increases
                 }
 
                 if (IsLightAttacking == true)
                 {
-                    ItemAttackMult = 2.25f;
+                    ItemAttackMult = 2.25f; // Light damage increases
                 }
 
                 if (IsHeavyAttacking == true)
                 {
-                    ItemAttackMult = 3f;
+                    ItemAttackMult = 3f; // Heavy damage increases
                 }
 
             }
-            timer = 0f;
+            timer = 0f; // End timer
 
         }
 
@@ -169,17 +179,17 @@ public class ItemEffects : MonoBehaviour
             {
                 if (IsRanged == true)
                 {
-                    ItemAttackMult = 1.5f;
+                    ItemAttackMult = 1.55f; // Ranged damage increases
                 }
 
                 if (IsLightAttacking == true)
                 {
-                    ItemAttackMult = 1.25f;
+                    ItemAttackMult = 1.75f; // Light damage increases
                 }
 
                 if (IsHeavyAttacking == true)
                 {
-                    ItemAttackMult = 2f;
+                    ItemAttackMult = 2.25f; // Heavy damage increases
                 }
             }
 
@@ -187,22 +197,22 @@ public class ItemEffects : MonoBehaviour
             {
                 if (IsRanged == true)
                 {
-                    ItemAttackMult = 1.15f;
+                    ItemAttackMult = 1.15f; // Ranged damage increases
                 }
 
                 if (IsLightAttacking == true)
                 {
-                    ItemAttackMult = 1.25f;
+                    ItemAttackMult = 1.25f; // Light damage increases
                 }
 
                 if (IsHeavyAttacking == true)
                 {
-                    ItemAttackMult = 1.35f;
+                    ItemAttackMult = 1.35f; // Heavy damage increases
                 }
 
             }
-                timer = 0f;
-            }
+                timer = 0f; // End timer
+        }
         }
   
 

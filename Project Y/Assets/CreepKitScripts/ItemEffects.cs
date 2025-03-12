@@ -9,6 +9,7 @@ public class ItemEffects : MonoBehaviour
 {
     Rigidbody2D rigidBody;
     public float speed = 5.0f; // Speed 
+    public float TimerChange = 0f;
 
     private float timer = 0f; // Used to keep track of when an item was activated 
 
@@ -76,11 +77,12 @@ public class ItemEffects : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.H))
             {
-                IsHeavyAttacking = true;
+                // if coolness.GunMultMaxCount
             }
 
         }
     }
+
     private void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "Bigger")

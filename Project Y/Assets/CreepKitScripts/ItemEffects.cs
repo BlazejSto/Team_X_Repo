@@ -7,9 +7,8 @@ using UnityEngine;
 using UnityEngine.UIElements;
 public class ItemEffects : MonoBehaviour
 {
-    Rigidbody2D rigidBody;
-    public float speed = 5.0f; // Speed 
-    public float TimerChange = 0f;
+    Rigidbody2D rigidBody; // Rigid Body
+    private float speed = 5.0f; // Speed 
 
     private float timer = 0f; // Used to keep track of when an item was activated 
 
@@ -17,7 +16,11 @@ public class ItemEffects : MonoBehaviour
     public ElementEffects effects; // Effects for Fire and Ice
     public PlayerAttack weapon; // Get Player weapon
     GameObject player; // Get Player
-    
+
+
+    public float ItemAttackMult = 0f;
+
+    private float Mult = 0f; // This is used for the muliplier after fetching from coolness.TimerMult
 
     private bool IsLightAttacking = false; // Used for set damage/Multiplier
     private bool IsHeavyAttacking = false; // Used for set damage/Multiplier
@@ -36,22 +39,17 @@ public class ItemEffects : MonoBehaviour
 
         weapon = GetComponent<PlayerAttack>(); //Getting weapon types
 
-        //IsFire = false;
-        //IsIce = false;
     }
     // Update is called once per frame
-    void Update()
-    {
-    }
-
 
     private void WeaponTypeChecker()
     {
+        // Check weapon is Melee
         if ((weapon.Melee == "Fists") || (weapon.Melee == "KDFists") || (weapon.Melee == "Knife") || (weapon.Melee == "BBAt") || (weapon.Melee == "Crowbar"))
         {
             IsMelee = true;
         }
-
+        // Check Weapon is Ranged
         if ((weapon.Ranged == "Revolver") || (weapon.Ranged == "TGun") || (weapon.Ranged == "Colt") || (weapon.Ranged == "Shotgun") || (weapon.Ranged == "Flame"))
         {
             IsRanged = true;
@@ -64,80 +62,98 @@ public class ItemEffects : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.J))
             {
-                IsLightAttacking = true;
+                IsLightAttacking = true; // Checking if current attack is a light attack
             }
 
             if (Input.GetKeyDown(KeyCode.H))
             {
-                IsHeavyAttacking = true;
+                IsHeavyAttacking = true; // Checking if current attack is a heavy attack
             }
         }
 
-        if (IsRanged == true)
-        {
-            if (Input.GetKeyDown(KeyCode.H))
-            {
-                // if coolness.GunMultMaxCount
-            }
-
-        }
     }
 
-    private void OnCollisionEnter2D(Collision2D coll)
+    private void MultiplyingTime()
+    {
+        if(coolmeter.TimerMult == 1.5f) // Getting the time Multiplier. This is for hypothermia 1
+        {
+            Mult = 1.5f;
+        }
+
+        if (coolmeter.TimerMult == 2f) // Hypothermia 3
+        {
+            Mult = 2f;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D coll) // Item Effects START
     {
         if (coll.gameObject.tag == "Bigger")
         {
             timer += Time.deltaTime; // Start the timer
-            Destroy(coll.gameObject);
-            if (timer < 10f)
+            Destroy(coll.gameObject); // Destroy Item
+            if (timer < (10f * Mult)) // Start Item effect
             {
-                rigidBody.transform.localScale = new Vector3(2, 2, 2);
+                rigidBody.transform.localScale = new Vector3(2, 2, 2); // Make sprite bigger
             }
-            timer = 0f;
+            timer = 0f; // End timer
         }
 
         if (coll.gameObject.tag == "Faster")
         {
-            timer += Time.deltaTime;
-            if (timer < 5f)
+            timer += Time.deltaTime; // Start timer
+            Destroy(coll.gameObject); // Destroy Item 
+            if (timer < (5f * Mult)) // Start Item effect
             {
-                speed = 10.0f;
+                speed = 10.0f; // Increase the speed of the player. Value can be tweaked
             }
-            timer = 0f;
+            timer = 0f; // End timer
         }
-
-
-        //Bullet is shot out twice from the player
-        //This needs to last for a bit of time but not too much time (3 seconds?)
-        //In the case of melee, it needs to register twice
 
         if (coll.gameObject.tag == "Double")
         {
-            Destroy(coll.gameObject);
-            
-            timer += Time.deltaTime;
-            if (timer < 4f)
+            timer += Time.deltaTime; // Start Timer
+            Destroy(coll.gameObject); // 
+            if (timer < (4f * Mult)) // Start Item effect
             {
-                
-                //If statement here for if bullet or melee
-                //If statement if heavy or light damage
-                
-                //HeavyAttackDamage = HeavyAttackDamage * 2;
-                //Debug.Log(HeavyAttackDamage);
+                if (IsRanged == true)
+                {
+                    ItemAttackMult = 1.5f;
+                }
+
+                if (IsLightAttacking == true)
+                {
+                    ItemAttackMult = 1.25f;
+                }
+
+                if (IsHeavyAttacking == true)
+                {
+                    ItemAttackMult = 2f;
+                }
+
             }
             timer = 0f;
         }
 
-        if(coll.gameObject.tag == "Piercing")
+        if (coll.gameObject.tag == "Piercing")
         {
             Destroy(coll.gameObject);
             timer += Time.deltaTime;
-            if (timer < 3f)
+            if (timer < (3f * Mult)) // Start Item effect
             {
-                //If statement here for if bullet or melee
-                //If statement if heavy or light damage
-                //HeavyAttackDamage += HeavyAttackDamage * 4;
-               // Debug.Log(HeavyAttackDamage);
+                if (IsRanged == true)
+                {
+                    ItemAttackMult = 2.5f;
+                }
+
+                if (IsLightAttacking == true)
+                {
+                    ItemAttackMult = 2.25f;
+                }
+
+                if (IsHeavyAttacking == true)
+                {
+                    ItemAttackMult = 3f;
+                }
 
             }
             timer = 0f;
@@ -148,25 +164,43 @@ public class ItemEffects : MonoBehaviour
         {
             Destroy(coll.gameObject);
             timer += Time.deltaTime;
-            //if (IsFire == true)
+
+            if (Mult == 1.5f) // Start Item effect ver 1
             {
-                if(timer < 5f)
+                if (IsRanged == true)
                 {
-                    //If statement here for if bullet or melee
-                    //If statement if heavy or light damage
-                    //HeavyAttackDamage += HeavyAttackDamage * 5;
-                    //Debug.Log(HeavyAttackDamage);
-                    //If coolness is bigger than 6100, turn this item effect off
-                    //timer = 0f;
-                    //coolness =+ value 
+                    ItemAttackMult = 1.5f;
                 }
 
-                //if (IsIce == true)
+                if (IsLightAttacking == true)
                 {
-                    //Get hypothermia value
-                    //Add multiplier and apply to attacks
-                    //HeavyAttackDamage = HeavyAttackDamage * //Multiplier from above;
+                    ItemAttackMult = 1.25f;
                 }
+
+                if (IsHeavyAttacking == true)
+                {
+                    ItemAttackMult = 2f;
+                }
+            }
+
+            if (Mult == 2f) // Start Item effect ver 2
+            {
+                if (IsRanged == true)
+                {
+                    ItemAttackMult = 1.15f;
+                }
+
+                if (IsLightAttacking == true)
+                {
+                    ItemAttackMult = 1.25f;
+                }
+
+                if (IsHeavyAttacking == true)
+                {
+                    ItemAttackMult = 1.35f;
+                }
+
+            }
                 timer = 0f;
             }
         }
@@ -175,6 +209,5 @@ public class ItemEffects : MonoBehaviour
 
 
     }
-}
 
 

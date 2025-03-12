@@ -27,6 +27,8 @@ public class PlayerScript : MonoBehaviour
 
     public AudioSource DashSound;
 
+    GameObject hitbox = default;
+
 
     // Start is called before the first frame update
     void Start()
@@ -70,7 +72,50 @@ public class PlayerScript : MonoBehaviour
             decelerate = true;
 
         else if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) == true)
+        {
             decelerate = false;
+            TurnHitboxes(0);
+            TurnHitboxes(1);
+            TurnHitboxes(2);
+            TurnHitboxes(3);
+            TurnHitboxes(4);
+            TurnHitboxes(5);
+            TurnHitboxes(6);
+            TurnHitboxes(7);
+            TurnHitboxes(8);
+            TurnHitboxes(9);
+        }
+
+
+        
+    }
+
+
+
+    void TurnHitboxes(int box)
+    {
+        hitbox = transform.GetChild(box).gameObject;
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            hitbox.transform.localScale = new Vector3(0.5f,2.5f,1);
+            hitbox.transform.localPosition = new Vector3(-0.1f, 0.075f, 0);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            hitbox.transform.localScale = new Vector3(-1, 1, 1);
+            hitbox.transform.localPosition = new Vector3(0,0,0);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            hitbox.transform.localScale = new Vector3(0.5f, 2.5f, 1);
+            hitbox.transform.localPosition = new Vector3(-0.1f, -0.2f, 0);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            hitbox.transform.localScale = new Vector3(1, 1, 1);
+            hitbox.transform.localPosition = new Vector3(0, 0, 0);
+        }
     }
 
     private void Dash()

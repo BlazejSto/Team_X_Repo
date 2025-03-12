@@ -34,6 +34,10 @@ public class EnemyScript : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
+        upTarget = player.transform.GetChild(15).gameObject;
+        downTarget = player.transform.GetChild(13).gameObject;
+        leftTarget = player.transform.GetChild(14).gameObject;
+        rightTarget = player.transform.GetChild(16).gameObject;
     }
 
     // Update is called once per frame

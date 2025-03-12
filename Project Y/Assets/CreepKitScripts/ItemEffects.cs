@@ -8,44 +8,33 @@ using UnityEngine.UIElements;
 public class ItemEffects : MonoBehaviour
 {
     Rigidbody2D rigidBody;
-    public float speed = 5.0f;
-    //public float jumpForce = 8.0f;
-    //public float airControlForce = 10.0f;
-    //public float airControlMax = 1.5f;
+    public float speed = 5.0f; // Speed 
 
-    private float timer = 0f;
+    private float timer = 0f; // Used to keep track of when an item was activated 
 
-    public Coolness coolmeter;
-    public ElementEffects effects;
-    public PlayerAttack weapon;
-    GameObject player;
+    public Coolness coolmeter; // Coolmeter values
+    public ElementEffects effects; // Effects for Fire and Ice
+    public PlayerAttack weapon; // Get Player weapon
+    GameObject player; // Get Player
     
 
-    private bool IsLightAttacking = false;
-    private bool IsHeavyAttacking = false;
+    private bool IsLightAttacking = false; // Used for set damage/Multiplier
+    private bool IsHeavyAttacking = false; // Used for set damage/Multiplier
 
-    private bool IsMelee = false;
-    private bool IsRanged = false;
+    private bool IsMelee = false; // Check if it is a melee weapon
+    private bool IsRanged = false; // Check if it is a ranged weapon
 
-
-
-
-    //private bool IsFire;
-    //private bool IsIce;
     // Use this for initialization
     void Start()
     {
-        rigidBody = GetComponent<Rigidbody2D>();
+        rigidBody = GetComponent<Rigidbody2D>(); // Get Rigid Body 
 
-        effects = GetComponent<ElementEffects>();
+        effects = GetComponent<ElementEffects>(); // Fire and Ice
 
-        coolmeter = player.GetComponent<Coolness>();
+        coolmeter = player.GetComponent<Coolness>(); // Coolmeter 
 
-        weapon = GetComponent<PlayerAttack>();
+        weapon = GetComponent<PlayerAttack>(); //Getting weapon types
 
-
-        // if weapon.Melee == "Fists"
-            //if weapon.
         //IsFire = false;
         //IsIce = false;
     }
@@ -55,8 +44,18 @@ public class ItemEffects : MonoBehaviour
     }
 
 
-    
-    private 
+    private void WeaponTypeChecker()
+    {
+        if ((weapon.Melee == "Fists") || (weapon.Melee == "KDFists") || (weapon.Melee == "Knife") || (weapon.Melee == "BBAt") || (weapon.Melee == "Crowbar"))
+        {
+            IsMelee = true;
+        }
+
+        if ((weapon.Ranged == "Revolver") || (weapon.Ranged == "TGun") || (weapon.Ranged == "Colt") || (weapon.Ranged == "Shotgun") || (weapon.Ranged == "Flame"))
+        {
+            IsRanged = true;
+        }
+    }
     
     private void WeaponMultiplierCheck ()
     {
@@ -75,6 +74,10 @@ public class ItemEffects : MonoBehaviour
 
         if (IsRanged == true)
         {
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                IsHeavyAttacking = true;
+            }
 
         }
     }
@@ -82,7 +85,7 @@ public class ItemEffects : MonoBehaviour
     {
         if (coll.gameObject.tag == "Bigger")
         {
-            timer += Time.deltaTime;
+            timer += Time.deltaTime; // Start the timer
             Destroy(coll.gameObject);
             if (timer < 10f)
             {

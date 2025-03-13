@@ -127,7 +127,7 @@ public class PlayerScript : MonoBehaviour
             nextDash = Time.time + dashDelay;
 
             StartCoroutine(StopDash());
-            //DashSound.Play();
+            DashSound.Play();
             Debug.Log("Is dashing");
         }
 

@@ -1169,9 +1169,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1503029535449795836, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
+      propertyPath: dashTime
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503029535449795836, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
       propertyPath: DashSound
       value: 
       objectReference: {fileID: 1840088494}
+    - target: {fileID: 1503029535449795836, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
+      propertyPath: dashDelay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503029535449795836, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
+      propertyPath: dashDistance
+      value: 13.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4307223291011268873, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
       propertyPath: PlayerBurningSFX
       value: 

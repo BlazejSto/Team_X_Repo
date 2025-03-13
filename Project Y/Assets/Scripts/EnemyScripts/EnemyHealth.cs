@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class EnemyHealth : MonoBehaviour
 
     GameObject player;// player
     public PlayerAttack Damage;//reference to PlayerAttack
-
+    bool iFrames;
 
     void Start()
     {
@@ -29,9 +30,11 @@ public class EnemyHealth : MonoBehaviour
         {
             throw new System.ArgumentOutOfRangeException("Cannot have negative damage");
         }
-        else if (amount > 0)
+        else if (amount > 0 && !iFrames)
         {
             Enemy_health -= amount*Damage.DamageMult;
+            iFrames = true;
+            StartCoroutine(IFRAMES());
         }
 
         if (Enemy_health < 1)
@@ -43,6 +46,12 @@ public class EnemyHealth : MonoBehaviour
     {
         Debug.Log("I am dead!");
         Destroy(gameObject);
+    }
+
+    private IEnumerator IFRAMES()
+    {
+        yield return new WaitForSeconds(0.75f);
+        iFrames = false;
     }
 
 }

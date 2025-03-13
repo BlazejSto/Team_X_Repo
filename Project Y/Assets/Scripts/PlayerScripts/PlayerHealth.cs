@@ -14,6 +14,8 @@ public class Health : MonoBehaviour
 
     public float DamageMult = 1; //For Coolmetre
 
+    bool iFrames;
+
 
 
     private void Awake()
@@ -32,10 +34,11 @@ public class Health : MonoBehaviour
         {
             throw new System.ArgumentOutOfRangeException("Cannot have negative damage");
         }
-        else if (amount > 0)
+        else if (amount > 0 && !iFrames)
         {
             this.Player_health -= (amount * DamageMult) ;
-            
+            iFrames = true ;
+            StartCoroutine(IFRAMES());
         }
 
         if (Player_health < 1)
@@ -67,4 +70,9 @@ public class Health : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private IEnumerator IFRAMES()
+    {
+        yield return new WaitForSeconds(0.75f);
+        iFrames = false;
+    }
 }

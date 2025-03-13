@@ -9,8 +9,6 @@ public class Coolness : MonoBehaviour
     float decayrate;
     float slowMult = 1;
 
-    public float TimerMult = 0f; // Kit - Used for the duration of Item Effects.
-
     char Rank;
 
     int Hypothermia;
@@ -211,7 +209,6 @@ public class Coolness : MonoBehaviour
 
             
 
-            TimerMult = 1.5f; // Kit Addition
             //Item efficiency for cold items now 1 <---- need public stat to change (sprint 3?)
             //Ice visual effects stage 1 (HUD effects)
             slowMult = 0.9f;
@@ -226,7 +223,6 @@ public class Coolness : MonoBehaviour
         {
             //Item efficiency for cold now 2 <---- need public stat to change (sprint 3?)
 
-            TimerMult = 2f; // Kit Addition 
             //Health Recovery of any kind reduced (0.75x?) <---- need public stat to change
             //Ice visual effects stage 3(HUD effects)
             slowMult = 0.8f;

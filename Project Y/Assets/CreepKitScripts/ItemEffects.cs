@@ -7,15 +7,18 @@ using UnityEngine;
 using UnityEngine.UIElements;
 public class ItemEffects : MonoBehaviour
 {
-    
+
     // Current Progress as of 12/03/25
     // Improvements - Fire & Ice could be used (idk how tho :( ) 
     // Note - Item effects values for damage, speed and size can be altered if needed
-    
-    
-    
-    
-    
+
+
+    // Stuff that needs to go into Coolness script:
+    //public float TimerMult = 0f; // Kit - Used for the duration of Item Effects. At the top of the script with the other variables
+    //TimerMult = 1.5f; // Kit Addition - In Hypothermia 1
+    //TimerMult = 2f; // Kit Addition - Hypothermia 3
+
+
     Rigidbody2D rigidBody; // Rigid Body
     public float speed = 5.0f; // Speed 
 
@@ -82,18 +85,18 @@ public class ItemEffects : MonoBehaviour
 
     }
 
-    private void MultiplyingTime()
-    {
-        if(coolmeter.TimerMult == 1.5f) // Getting the time Multiplier. This is for hypothermia 1
-        {
-            Mult = 1.5f;
-        }
+   // private void MultiplyingTime()
+    //{
+     //   if(coolmeter.TimerMult == 1.5f) // Getting the time Multiplier. This is for hypothermia 1
+     //   {
+      //      Mult = 1.5f;
+      //  }
 
-        if (coolmeter.TimerMult == 2f) // Hypothermia 3
-        {
-            Mult = 2f;
-        }
-    }
+     //   if (coolmeter.TimerMult == 2f) // Hypothermia 3
+      //  {
+      //      Mult = 2f;
+      //  }
+   // }
 
     private void OnCollisionEnter2D(Collision2D coll) // Item Effects START
     {

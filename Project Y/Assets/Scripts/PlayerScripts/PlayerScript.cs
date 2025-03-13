@@ -74,32 +74,32 @@ public class PlayerScript : MonoBehaviour
         else if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) == true)
         {
             decelerate = false;
-            TurnHitboxes(0);
-            TurnHitboxes(1);
-            TurnHitboxes(2);
-            TurnHitboxes(3);
-            TurnHitboxes(4);
-            TurnHitboxes(5);
-            TurnHitboxes(6);
-            TurnHitboxes(7);
-            TurnHitboxes(8);
-            TurnHitboxes(9);
+            TurnHitboxes(0,0.5f,2.5f, - 0.1f, 0.075f);
+            TurnHitboxes(1,0.65f,2.5f, -0.125f, 0.075f);
+            TurnHitboxes(2, 0.5f, 2.5f, -0.1f, 0.075f);
+            TurnHitboxes(3, 0.65f, 2.5f, -0.125f, 0.075f);
+            TurnHitboxes(4, 2, 1.5f, -0.3f, 0.15f);
+            TurnHitboxes(5, 2, 1.5f, -0.3f, 0.15f);
+            TurnHitboxes(6, 2, 1.5f, -0.3f, 0.15f);
+            TurnHitboxes(7, 1.5f, 1f, -0.3f, 0.15f);
+            TurnHitboxes(8, 0.5f, 2.5f, -0.1f, 0.25f);
+            TurnHitboxes(9, 1.5f, 1, -0.25f, 0.25f);
         }
 
 
-        
+
     }
 
 
 
-    void TurnHitboxes(int box)
+    void TurnHitboxes(int box,float x, float y,float pox, float poy) //box is the child object position // x and y are used for the localScale for W and S// pox and poy are for positions on W an S
     {
         hitbox = transform.GetChild(box).gameObject;
 
         if (Input.GetKey(KeyCode.W))
         {
-            hitbox.transform.localScale = new Vector3(0.5f,2.5f,1);
-            hitbox.transform.localPosition = new Vector3(-0.1f, 0.075f, 0);
+            hitbox.transform.localScale = new Vector3(x,y,1);
+            hitbox.transform.localPosition = new Vector3(pox, poy, 0);
         }
         if (Input.GetKey(KeyCode.A))
         {
@@ -108,8 +108,8 @@ public class PlayerScript : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.S))
         {
-            hitbox.transform.localScale = new Vector3(0.5f, 2.5f, 1);
-            hitbox.transform.localPosition = new Vector3(-0.1f, -0.2f, 0);
+            hitbox.transform.localScale = new Vector3(x+.25f, y+.25f, 1);
+            hitbox.transform.localPosition = new Vector3(pox - 0.05f, poy-0.5f, 0);
         }
         if (Input.GetKey(KeyCode.D))
         {
@@ -127,7 +127,7 @@ public class PlayerScript : MonoBehaviour
             nextDash = Time.time + dashDelay;
 
             StartCoroutine(StopDash());
-            DashSound.Play();
+            //DashSound.Play();
             Debug.Log("Is dashing");
         }
 

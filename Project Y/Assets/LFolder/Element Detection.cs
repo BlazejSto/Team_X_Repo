@@ -6,6 +6,9 @@ public class ElementDetection : MonoBehaviour
 {
     GameObject player;// player
     ElementEffects element;
+
+    public AudioSource FlameIgnitionSFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +28,7 @@ public class ElementDetection : MonoBehaviour
         {
             element.FireEffect(10);
             Destroy(coll.gameObject);
+            FlameIgnitionSFX.Play(); // Plays Flame Ignition sound when player catches on fire
         }
 
         if(coll.gameObject.tag == "Ice")

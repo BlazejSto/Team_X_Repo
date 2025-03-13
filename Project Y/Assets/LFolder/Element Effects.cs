@@ -16,6 +16,8 @@ public class ElementEffects : MonoBehaviour
 
     public List<int> burnTickTimer = new List<int>(); //Holds the burn ticks
 
+    public AudioSource PlayerBurningSFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +38,8 @@ public class ElementEffects : MonoBehaviour
 
     }
     public void FireEffect(int fireTick) 
-    {  
+    {
+        PlayerBurningSFX.Play(); // Plays burning sound when the player's burning
         ApplyBurn(fireTick);
         Coolness.Fire();
         
@@ -73,6 +76,7 @@ public class ElementEffects : MonoBehaviour
         }
         if (burnTickTimer.Count <= 0)
         {
+            PlayerBurningSFX.Stop(); // When the player stops burning, the burning sound also stops.
             Coolness.FireMultOff();
         }
     }

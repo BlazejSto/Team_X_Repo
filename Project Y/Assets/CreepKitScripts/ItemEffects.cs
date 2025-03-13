@@ -17,7 +17,7 @@ public class ItemEffects : MonoBehaviour
     
     
     Rigidbody2D rigidBody; // Rigid Body
-    private float speed = 5.0f; // Speed 
+    public float speed = 5.0f; // Speed 
 
     private float timer = 0f; // Used to keep track of when an item was activated 
 

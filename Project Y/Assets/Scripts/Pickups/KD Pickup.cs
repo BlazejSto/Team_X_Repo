@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,8 +41,9 @@ public class KDPickup : MonoBehaviour
     void Pickup()
     {
         Damage.Melee = Weapon;//changes Melee variable to the new weapon
-        Destroy(gameObject);//Destroys pickup once used
-        PickupSound.Play();//Plays a sound when the pickup is used
+        
+        
+        StartCoroutine(Death());
     }
 
     void Inputs()
@@ -64,5 +66,12 @@ public class KDPickup : MonoBehaviour
         {
             interactable = false;//cannot interact
         }
+    }
+
+    private IEnumerator Death()
+    {
+        PickupSound.Play();//Plays a sound when the pickup is used
+        yield return new WaitForSeconds(0.1f);
+        Destroy(gameObject);//Destroys pickup once used
     }
 }

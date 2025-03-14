@@ -426,7 +426,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 95c45996aa0dbf441a01e2a0102e866d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1190,7 +1190,7 @@ PrefabInstance:
       objectReference: {fileID: 1454440608}
     - target: {fileID: 6468840046713733842, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.14
+      value: -1.72
       objectReference: {fileID: 0}
     - target: {fileID: 6468840046713733842, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1228,6 +1228,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6880041688684289465, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
+      propertyPath: m_Volume
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 7789963781127917626, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
       propertyPath: FlameIgnitionSFX
       value: 
@@ -1243,8 +1247,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8674735162465525777, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1302685296}
+    - targetCorrespondingSourceObject: {fileID: 8674735162465525777, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1302685295}
   m_SourcePrefab: {fileID: 100100000, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
+--- !u!1 &145718650 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8674735162465525777, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
+  m_PrefabInstance: {fileID: 145718649}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &147703034
 GameObject:
   m_ObjectHideFlags: 0
@@ -9935,6 +9950,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6468840046713733842, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
   m_PrefabInstance: {fileID: 145718649}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1302685295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145718650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a2598ec4ec9124bb423fa14d75f5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1302685296
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145718650}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f593362cd4016741b8f0069d1ad85e2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1319639115
 GameObject:
   m_ObjectHideFlags: 0
@@ -10759,7 +10807,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 987e3be585223954494b2799209d5ed2, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -13514,7 +13562,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bf995a61db7cf87489772dfcdb274c1d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1.5
   Loop: 0
   Mute: 0

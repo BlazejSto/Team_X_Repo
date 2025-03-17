@@ -31,8 +31,8 @@ public class PlayerAttack : MonoBehaviour
     private float HAcooldown = 1f;
     private float timer = 0f;
 
-    private float DamageMult = 1f; //For Coolmetre
-    private float ItemDMG = 1f;// for item effects
+    public float DamageMult = 1f; //For Coolmetre
+    public float ItemDMG = 1f;// for item effects
 
     public string Melee = "Fists"; //Change to one of the specified to change Weapons
     //List of Melee Weapons:

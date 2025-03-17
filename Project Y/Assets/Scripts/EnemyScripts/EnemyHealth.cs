@@ -10,13 +10,16 @@ public class EnemyHealth : MonoBehaviour
 
     GameObject player;// player
     public PlayerAttack Damage;//reference to PlayerAttack
+    Coolness cool;
     bool iFrames;
     ItemDrops Drops;
+
 
     void Start()
     {
         player = Health.GetInstance().gameObject;//finds the player
         Damage = player.GetComponent<PlayerAttack>();//gets the PlayerAttack from the player
+        cool = player.GetComponent<Coolness>();
 
         Drops = GetComponent<ItemDrops>();
     }
@@ -63,11 +66,15 @@ public class EnemyHealth : MonoBehaviour
     {
         if(collision.gameObject.tag == "Bullet")
         {
+            cool.AddGunMult();
+            cool.CoolnessIncrease(50);
             Enemy_Damage(5);
         }
 
         else if(collision.gameObject.tag == "FlameThrowerFire")
         {
+            cool.AddGunMult();
+            cool.CoolnessIncrease(15);
             Enemy_Damage(4f);
         }
     }

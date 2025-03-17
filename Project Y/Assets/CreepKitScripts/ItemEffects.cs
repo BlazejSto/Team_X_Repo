@@ -38,11 +38,11 @@ public class ItemEffects : MonoBehaviour
 
     public float Mult = 0f; // This is used for the muliplier after fetching from coolness.TimerMult
 
-    private bool IsLightAttacking = false; // Used for set damage/Multiplier
-    private bool IsHeavyAttacking = false; // Used for set damage/Multiplier
+    //private bool IsLightAttacking = false; // Used for set damage/Multiplier
+    //private bool IsHeavyAttacking = false; // Used for set damage/Multiplier
 
-    private bool IsMelee = false; // Check if it is a melee weapon
-    private bool IsRanged = false; // Check if it is a ranged weapon
+    //private bool IsMelee = false; // Check if it is a melee weapon
+    //private bool IsRanged = false; // Check if it is a ranged weapon
 
 
     // Use this for initialization
@@ -66,19 +66,19 @@ public class ItemEffects : MonoBehaviour
     }
     // Update is called once per frame
 
-    private void WeaponTypeChecker()
-    {
-        // Check weapon is Melee
-        if ((weapon.Melee == "Fists") || (weapon.Melee == "KDFists") || (weapon.Melee == "Knife") || (weapon.Melee == "BBAt") || (weapon.Melee == "Crowbar"))
-        {
-            IsMelee = true;
-        }
-        // Check Weapon is Ranged
-        if ((weapon.Ranged == "Revolver") || (weapon.Ranged == "TGun") || (weapon.Ranged == "Colt") || (weapon.Ranged == "Shotgun") || (weapon.Ranged == "Flame"))
-        {
-            IsRanged = true;
-        }
-    }
+    //private void WeaponTypeChecker()
+    //{
+    //    // Check weapon is Melee
+    //    if ((weapon.Melee == "Fists") || (weapon.Melee == "KDFists") || (weapon.Melee == "Knife") || (weapon.Melee == "BBAt") || (weapon.Melee == "Crowbar"))
+    //    {
+    //        IsMelee = true;
+    //    }
+    //    // Check Weapon is Ranged
+    //    if ((weapon.Ranged == "Revolver") || (weapon.Ranged == "TGun") || (weapon.Ranged == "Colt") || (weapon.Ranged == "Shotgun") || (weapon.Ranged == "Flame"))
+    //    {
+    //        IsRanged = true;
+    //    }
+    //}
     
     //private void WeaponMultiplierCheck ()
     //{

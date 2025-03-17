@@ -411,6 +411,7 @@ GameObject:
   - component: {fileID: 5864151928657001783}
   - component: {fileID: 6737183294993878998}
   - component: {fileID: 4863822397143750406}
+  - component: {fileID: -5198691985170526630}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: EnemyHealth
@@ -427,7 +428,7 @@ Transform:
   m_GameObject: {fileID: 7384892552338549077}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: -0, z: 0}
+  m_LocalPosition: {x: 4.454472, y: -5.281379, z: -1}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -632,3 +633,30 @@ PolygonCollider2D:
       - {x: 0.092169285, y: 0.12259108}
       - {x: 0.058854178, y: 0.27933428}
   m_UseDelaunayMesh: 0
+--- !u!114 &-5198691985170526630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7384892552338549077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eb4baf0fd361d74aa6b1323e76f67ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Drops:
+  - {fileID: 4886803751529269373, guid: e918f9046dacb4745b8f9e7ed70f80f9, type: 3}
+  - {fileID: 6150919865288427456, guid: 31ab717122ea77e408ae9040b107dfc4, type: 3}
+  - {fileID: 5884865100299006615, guid: cf6d94b78184a3647a7595fcbc1d0fa5, type: 3}
+  - {fileID: 2795487926148350579, guid: cf4acda1257797e409ded9d57818735b, type: 3}
+  - {fileID: 4299032805553156384, guid: 9e4968b5039fac643aa422eaadc5160e, type: 3}
+  - {fileID: 3916951633182772752, guid: 32ff242df206da946ba85e73cd916e9d, type: 3}
+  - {fileID: 3328715131957961721, guid: c3f49ff6558507a43b6881538352aebf, type: 3}
+  - {fileID: 1721812875635746012, guid: b5508d3196067374fa490f1d310d4b20, type: 3}
+  - {fileID: 8616312070567709252, guid: 67e2526639932be4cbac1fe13fe86da5, type: 3}
+  - {fileID: 8616312070567709252, guid: 67e2526639932be4cbac1fe13fe86da5, type: 3}
+  - {fileID: 960914300122043317, guid: e601bc12b45545e4b97fc1c25d92bead, type: 3}
+  - {fileID: 960914300122043317, guid: e601bc12b45545e4b97fc1c25d92bead, type: 3}
+  - {fileID: 5652046741337139881, guid: 0f2e3c06d0abf624c870de25ec6835ff, type: 3}
+  - {fileID: 5652046741337139881, guid: 0f2e3c06d0abf624c870de25ec6835ff, type: 3}

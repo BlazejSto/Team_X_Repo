@@ -11,11 +11,14 @@ public class EnemyHealth : MonoBehaviour
     GameObject player;// player
     public PlayerAttack Damage;//reference to PlayerAttack
     bool iFrames;
+    ItemDrops Drops;
 
     void Start()
     {
         player = Health.GetInstance().gameObject;//finds the player
         Damage = player.GetComponent<PlayerAttack>();//gets the PlayerAttack from the player
+
+        Drops = GetComponent<ItemDrops>();
     }
 
     void Update()
@@ -39,6 +42,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (Enemy_health < 1)
         {
+            Drops.Drop();
             Enemy_Death();
         }
     }

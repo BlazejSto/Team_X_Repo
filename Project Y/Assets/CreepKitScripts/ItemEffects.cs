@@ -240,7 +240,8 @@ public class ItemEffects : MonoBehaviour
         rigidBody.transform.localScale = new Vector3(2, 2, 2);
         speed = 5;
         ItemAttackMult = 1f;
-
+        weapon.ItemDMG = ItemAttackMult; //this is probably gonna break badly but oh well
+        Speed.speed = speed;
     }
 
     void Update()

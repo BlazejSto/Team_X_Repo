@@ -15,6 +15,11 @@ TagManager:
   - SMGTag
   - Fire
   - Ice
+  - Bigger
+  - Faster
+  - Piercing
+  - Double
+  - CoolMeterDependent
   layers:
   - Default
   - TransparentFX

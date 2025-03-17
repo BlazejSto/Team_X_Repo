@@ -671,7 +671,7 @@ GameObject:
   - component: {fileID: 2015365283}
   m_Layer: 0
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: Bigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -801,7 +801,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  HeavyAttackDamage: 10
+  coolmeter: {fileID: 0}
+  effects: {fileID: 0}
+  weapon: {fileID: 0}
+  ItemAttackMult: 0
 --- !u!1 &2025169344
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,7 +945,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  HeavyAttackDamage: 10
+  coolmeter: {fileID: 0}
+  effects: {fileID: 0}
+  weapon: {fileID: 0}
+  ItemAttackMult: 0
 --- !u!61 &2025169352
 BoxCollider2D:
   m_ObjectHideFlags: 0

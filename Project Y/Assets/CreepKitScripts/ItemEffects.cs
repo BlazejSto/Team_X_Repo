@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -32,6 +33,8 @@ public class ItemEffects : MonoBehaviour
 
     public float ItemAttackMult = 0f;
 
+    bool effectTimer = false;
+
     private float Mult = 0f; // This is used for the muliplier after fetching from coolness.TimerMult
 
     private bool IsLightAttacking = false; // Used for set damage/Multiplier
@@ -47,10 +50,11 @@ public class ItemEffects : MonoBehaviour
 
         effects = GetComponent<ElementEffects>(); // Fire and Ice
 
-        coolmeter = player.GetComponent<Coolness>(); // Coolmeter 
+        //coolmeter = player.GetComponent<Coolness>(); // Coolmeter 
 
         weapon = GetComponent<PlayerAttack>(); //Getting weapon types
 
+        Mult = 1f;
     }
     // Update is called once per frame
 
@@ -101,30 +105,28 @@ public class ItemEffects : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D coll) // Item Effects START
     {
         if (coll.gameObject.tag == "Bigger")
-        {
-            timer += Time.deltaTime; // Start the timer
-            Destroy(coll.gameObject); // Destroy Item
+        {   
             if (timer < (10f * Mult)) // Start Item effect
             {
-                rigidBody.transform.localScale = new Vector3(2, 2, 2); // Make sprite bigger
+                effectTimer = true;
+                rigidBody.transform.localScale = new Vector3(2, 4, 2); // Make sprite bigger
+                Destroy(coll.gameObject);
             }
-            timer = 0f; // End timer
         }
 
         if (coll.gameObject.tag == "Faster")
         {
-            timer += Time.deltaTime; // Start timer
-            Destroy(coll.gameObject); // Destroy Item 
-            if (timer < (5f * Mult)) // Start Item effect
+            if (timer < (10f * Mult)) // Start Item effect
             {
-                speed = 10.0f; // Increase the speed of the player. Value can be tweaked
+                effectTimer = true;
+                speed = 10;
+                Destroy(coll.gameObject);
             }
-            timer = 0f; // End timer
         }
 
         if (coll.gameObject.tag == "Double")
         {
-            timer += Time.deltaTime; // Start Timer
+            effectTimer = true;
             Destroy(coll.gameObject); // 
             if (timer < (4f * Mult)) // Start Item effect
             {
@@ -144,13 +146,12 @@ public class ItemEffects : MonoBehaviour
                 }
 
             }
-            timer = 0f; // End timer
         }
 
         if (coll.gameObject.tag == "Piercing")
         {
             Destroy(coll.gameObject);
-            timer += Time.deltaTime;
+            effectTimer = true;
             if (timer < (3f * Mult)) // Start Item effect
             {
                 if (IsRanged == true)
@@ -169,7 +170,6 @@ public class ItemEffects : MonoBehaviour
                 }
 
             }
-            timer = 0f; // End timer
 
         }
 
@@ -216,9 +216,34 @@ public class ItemEffects : MonoBehaviour
             }
                 timer = 0f; // End timer
         }
-        }
-  
+    }
 
+    void DefaultEffects()
+    {
+        rigidBody.transform.localScale = new Vector3(2, 2, 2);
+        speed = 5;
+        ItemAttackMult = 1f;
+
+
+    }
+
+    private void Update()
+    {
+        if (effectTimer == true)
+        {
+            Effects();
+        }
+    }
+
+    void Effects()
+    {
+        timer += Time.deltaTime; // Start the timer
+        if(timer >= 10)
+        {
+            DefaultEffects();
+            timer = 0f;
+        }
+    }
 
 
     }

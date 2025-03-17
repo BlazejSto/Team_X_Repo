@@ -32,7 +32,7 @@ public class EnemyHealth : MonoBehaviour
         }
         else if (amount > 0 && !iFrames)
         {
-            Enemy_health -= amount*Damage.DamageMult;
+            Enemy_health -= amount*(Damage.DamageMult+Damage.ItemDMG);
             iFrames = true;
             StartCoroutine(IFRAMES());
         }

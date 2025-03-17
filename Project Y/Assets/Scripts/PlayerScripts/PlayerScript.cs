@@ -14,7 +14,7 @@ public class PlayerScript : MonoBehaviour
 
     private float horizontalInput;
     private float verticalInput;
-    public float speed;
+    public float speed;// public so an be changed by items
     bool decelerate = false;
     public float decelRate;
 
@@ -101,17 +101,12 @@ public class PlayerScript : MonoBehaviour
             hitbox.transform.localScale = new Vector3(x,y,1);
             hitbox.transform.localPosition = new Vector3(pox, poy, 0);
         }
-        if (Input.GetKey(KeyCode.A))
-        {
-            hitbox.transform.localScale = new Vector3(-1, 1, 1);
-            hitbox.transform.localPosition = new Vector3(0,0,0);
-        }
         if (Input.GetKey(KeyCode.S))
         {
             hitbox.transform.localScale = new Vector3(x+.25f, y+.25f, 1);
             hitbox.transform.localPosition = new Vector3(pox - 0.05f, poy-0.5f, 0);
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D)|| Input.GetKey(KeyCode.A))
         {
             hitbox.transform.localScale = new Vector3(1, 1, 1);
             hitbox.transform.localPosition = new Vector3(0, 0, 0);

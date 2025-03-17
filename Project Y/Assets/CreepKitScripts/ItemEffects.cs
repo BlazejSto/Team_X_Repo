@@ -28,10 +28,11 @@ public class ItemEffects : MonoBehaviour
     public Coolness coolmeter; // Coolmeter values
     public ElementEffects effects; // Effects for Fire and Ice
     public PlayerAttack weapon; // Get Player weapon
+    PlayerScript Speed; //gets player movement to change speed
     GameObject player; // Get Player
 
 
-    public float ItemAttackMult = 0f;
+    public float ItemAttackMult = 1f;
 
     bool effectTimer = false;
 
@@ -43,16 +44,23 @@ public class ItemEffects : MonoBehaviour
     private bool IsMelee = false; // Check if it is a melee weapon
     private bool IsRanged = false; // Check if it is a ranged weapon
 
+
     // Use this for initialization
     void Start()
     {
-        rigidBody = GetComponent<Rigidbody2D>(); // Get Rigid Body 
+        ItemAttackMult = 1f; //is 0 otherwise for god knows what reason
 
-        effects = GetComponent<ElementEffects>(); // Fire and Ice
+        player = Health.GetInstance().gameObject;//finds the player
+
+        rigidBody = player.GetComponent<Rigidbody2D>(); // Get Rigid Body 
+
+        effects = player.GetComponent<ElementEffects>(); // Fire and Ice
 
         //coolmeter = player.GetComponent<Coolness>(); // Coolmeter 
 
-        weapon = GetComponent<PlayerAttack>(); //Getting weapon types
+        weapon = player.GetComponent<PlayerAttack>(); //Getting weapon types
+
+        Speed = player.GetComponent<PlayerScript>(); //for player speed
 
         Mult = 1f;
     }
@@ -72,22 +80,22 @@ public class ItemEffects : MonoBehaviour
         }
     }
     
-    private void WeaponMultiplierCheck ()
-    {
-        if (IsMelee == true)
-        {
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                IsLightAttacking = true; // Checking if current attack is a light attack
-            }
+    //private void WeaponMultiplierCheck ()
+    //{
+    //    if (IsMelee == true)
+    //    {
+    //        if (Input.GetKeyDown(KeyCode.J))
+    //        {
+    //            IsLightAttacking = true; // Checking if current attack is a light attack
+    //        }
 
-            if (Input.GetKeyDown(KeyCode.H))
-            {
-                IsHeavyAttacking = true; // Checking if current attack is a heavy attack
-            }
-        }
+    //        if (Input.GetKeyDown(KeyCode.H))
+    //        {
+    //            IsHeavyAttacking = true; // Checking if current attack is a heavy attack
+    //        }
+    //    }
 
-    }
+    //}
 
    // private void MultiplyingTime()
     //{
@@ -128,95 +136,100 @@ public class ItemEffects : MonoBehaviour
         {
             effectTimer = true;
             Destroy(coll.gameObject); // 
-            if (timer < (4f * Mult)) // Start Item effect
+            if (timer < (10f * Mult)) // Start Item effect
             {
-                if (IsRanged == true)
-                {
-                    ItemAttackMult = 1.5f; // Ranged damage increases 
-                }
+                ItemAttackMult = 2;
 
-                if (IsLightAttacking == true)
-                {
-                    ItemAttackMult = 1.25f; // Light damage increases 
-                }
+                //doubleE = true;
+                ////if (IsRanged == true)
+                ////{
+                ////    ItemAttackMult = 1.5f; // Ranged damage increases 
+                ////}
 
-                if (IsHeavyAttacking == true)
-                {
-                    ItemAttackMult = 2f; // Heavy damage increases 
-                }
+                //if (IsLightAttacking == true)
+                //{
+                //    ItemAttackMult = 1.25f; // Light damage increases 
+                //}
+
+                //if (IsHeavyAttacking == true)
+                //{
+                //    ItemAttackMult = 2f; // Heavy damage increases 
+                //}
 
             }
         }
 
-        if (coll.gameObject.tag == "Piercing")
-        {
-            Destroy(coll.gameObject);
-            effectTimer = true;
-            if (timer < (3f * Mult)) // Start Item effect
-            {
-                if (IsRanged == true)
-                {
-                    ItemAttackMult = 2.5f; // Ranged damage increases
-                }
+        //if (coll.gameObject.tag == "Piercing")
+        //{
+        //    Destroy(coll.gameObject);
+        //    effectTimer = true;
+        //    if (timer < (10f * Mult)) // Start Item effect
+        //    {
+        //        pierceE = true;
+        //        if (IsRanged == true)
+        //        {
+        //            ItemAttackMult = 2.5f; // Ranged damage increases
+        //        }
 
-                if (IsLightAttacking == true)
-                {
-                    ItemAttackMult = 2.25f; // Light damage increases
-                }
+        //        //if (IsLightAttacking == true)
+        //        //{
+        //        //    ItemAttackMult = 2.25f; // Light damage increases
+        //        //}
 
-                if (IsHeavyAttacking == true)
-                {
-                    ItemAttackMult = 3f; // Heavy damage increases
-                }
+        //        //if (IsHeavyAttacking == true)
+        //        //{
+        //        //    ItemAttackMult = 3f; // Heavy damage increases
+        //        //}
 
-            }
+        //    }
 
-        }
+        //}
 
-        if (coll.gameObject.tag == "CoolMeterDependent")
-        {
-            Destroy(coll.gameObject);
-            timer += Time.deltaTime;
+    //    if (coll.gameObject.tag == "CoolMeterDependent")
+    //    {
+    //        Destroy(coll.gameObject);
+    //        timer += Time.deltaTime;
 
-            if (Mult == 1.5f) // Start Item effect ver 1
-            {
-                if (IsRanged == true)
-                {
-                    ItemAttackMult = 1.55f; // Ranged damage increases
-                }
+    //        if (Mult == 1.5f) // Start Item effect ver 1
+    //        {
+    //            if (IsRanged == true)
+    //            {
+    //                ItemAttackMult = 1.55f; // Ranged damage increases
+    //            }
 
-                if (IsLightAttacking == true)
-                {
-                    ItemAttackMult = 1.75f; // Light damage increases
-                }
+    //            if (IsLightAttacking == true)
+    //            {
+    //                ItemAttackMult = 1.75f; // Light damage increases
+    //            }
 
-                if (IsHeavyAttacking == true)
-                {
-                    ItemAttackMult = 2.25f; // Heavy damage increases
-                }
-            }
+    //            if (IsHeavyAttacking == true)
+    //            {
+    //                ItemAttackMult = 2.25f; // Heavy damage increases
+    //            }
+    //        }
 
-            if (Mult == 2f) // Start Item effect ver 2
-            {
-                if (IsRanged == true)
-                {
-                    ItemAttackMult = 1.15f; // Ranged damage increases
-                }
+    //        if (Mult == 2f) // Start Item effect ver 2
+    //        {
+    //            if (IsRanged == true)
+    //            {
+    //                ItemAttackMult = 1.15f; // Ranged damage increases
+    //            }
 
-                if (IsLightAttacking == true)
-                {
-                    ItemAttackMult = 1.25f; // Light damage increases
-                }
+    //            if (IsLightAttacking == true)
+    //            {
+    //                ItemAttackMult = 1.25f; // Light damage increases
+    //            }
 
-                if (IsHeavyAttacking == true)
-                {
-                    ItemAttackMult = 1.35f; // Heavy damage increases
-                }
+    //            if (IsHeavyAttacking == true)
+    //            {
+    //                ItemAttackMult = 1.35f; // Heavy damage increases
+    //            }
 
-            }
-                timer = 0f; // End timer
-        }
+    //        }
+    //            timer = 0f; // End timer
+    //    }
     }
+
 
     void DefaultEffects()
     {
@@ -224,15 +237,24 @@ public class ItemEffects : MonoBehaviour
         speed = 5;
         ItemAttackMult = 1f;
 
-
     }
 
-    private void Update()
+    void Update()
     {
         if (effectTimer == true)
         {
             Effects();
         }
+
+        IsLightAttacking = weapon.GetLight();
+        IsHeavyAttacking = weapon.GetHeavy();
+
+    }
+
+    void FixedUpdate()
+    {
+        weapon.ItemDMG = ItemAttackMult; //this is probably gonna break badly but oh well
+        Speed.speed = speed;
     }
 
     void Effects()
@@ -246,6 +268,6 @@ public class ItemEffects : MonoBehaviour
     }
 
 
-    }
+}
 
 

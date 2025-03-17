@@ -43,7 +43,7 @@ public class Coolness : MonoBehaviour
         attack = GetComponent<PlayerAttack>();
         items = GetComponent<ItemEffects>();
         //
-        coolness = 0;
+        coolness = 1500;
         decayrate = 1;
 
         GunMult = 0;
@@ -162,32 +162,32 @@ public class Coolness : MonoBehaviour
             Rank = 'f';
         }
 
-        else if (coolness >= 0 && coolness < 1000)// 0 - 999 is D, 1000 
+        else if (coolness >= 0 && coolness < 500)// 0 - 999 is D, 1000 
         {
             Rank = 'd';
         }
 
-        else if (coolness >= 1000 && coolness < 2000)// 1000 - 1999 is C, 1000
+        else if (coolness >= 500 && coolness < 1500)// 1000 - 1999 is C, 1000
         {
             Rank = 'c';
         }
 
-        else if (coolness >= 2000 && coolness < 3500)// 2000 - 3499 is B, 1500
+        else if (coolness >= 1500 && coolness < 2500)// 2000 - 3499 is B, 1500
         {
             Rank = 'b';
         }
 
-        else if (coolness >= 3500 && coolness < 5000)// 3500 - 4999 is A. 1500
+        else if (coolness >= 2500 && coolness < 4000)// 3500 - 4999 is A. 1500
         {
             Rank = 'a';
         }
 
-        else if (coolness >= 5000 && coolness < 6000)// 5000 + is S 1000
+        else if (coolness >= 4000 && coolness < 5000)// 5000 + is S 1000
         {
             Rank = 's';
         }
 
-        else if (coolness >= 6000)
+        else if (coolness >= 5000)
         {
             Rank = 'h';
         }
@@ -195,23 +195,23 @@ public class Coolness : MonoBehaviour
 
     void HypothermiaCheck()
     {
-        if(coolness > 6000)
+        if(coolness > 5000)
         {
             Hypothermia = 1;
         }
-        if (coolness > 6200)
+        if (coolness > 5400)
         {
             Hypothermia = 2;
         }
-        if (coolness > 6400)
+        if (coolness > 5800)
         {
             Hypothermia = 3;
         }
-        if (coolness > 6600)
+        if (coolness > 6200)
         {
             Hypothermia = 4;
         }
-        if (coolness > 6800)
+        if (coolness > 6600)
         {
             Hypothermia = 5;
         }

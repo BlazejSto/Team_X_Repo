@@ -225,6 +225,7 @@ public class Coolness : MonoBehaviour
             attack.DamageMult = 1;
             health.DamageMult = 1;
             items.Mult = 1;
+            Effect.Hypo = 1;
         }
 
         else
@@ -237,14 +238,25 @@ public class Coolness : MonoBehaviour
                 //Item efficiency for cold items now 1 <---- need public stat to change (sprint 3B)
                 items.Mult = 1.5f;
                 //Ice visual effects stage 1 (HUD effects) <-------- Sprint 3B
-                
+
+                //recovery stuff
+                playerScript.slowMult = 1;
+                Effect.Hypo = 1;
+
             }
             if (Hypothermia >= 2)
             {
                 //Damage received and dealt increased further (now 2x?) <---- need public stat to change (sprint 3A)
                 attack.DamageMult = 2;
                 health.DamageMult = 2;
+
                 //Ice visual effects stage 2(HUD effects)<------- Sprint 3B
+
+                //recovery stuff
+                //reset items when dropping from 3 - 2
+                items.Mult = 1.5f;
+                playerScript.slowMult = 1;
+                Effect.Hypo = 1;
 
             }
             if (Hypothermia >= 3)
@@ -253,17 +265,26 @@ public class Coolness : MonoBehaviour
                 items.Mult = 2;
                 //Health Recovery of any kind reduced (0.75x?) <---- need public stat to change (sprint 3B)
                 //Ice visual effects stage 3(HUD effects) <------- (sprint 3B)
-                
+
+                //recovery stuff
+                playerScript.slowMult = 1;
+                Effect.Hypo = 1;
+
             }
             if (Hypothermia >= 4)
             {
 
                 //Warning to the player about High Hypothermia? (HUD effects)<----- (sprint 3B)
                 playerScript.slowMult = 0.75f;
+
+                //recovery stuff
+                Effect.Hypo = 1;
             }
             if (Hypothermia >= 5)
             {
                 //The damaging effect of Hypothermia (Death or DOT) <---- need public stat to change (Sprint 3B)
+                Effect.HypothermiaDOT();
+                Effect.Hypo = 2;
                 //Ice visual effects stage 4 (HUD effects)<--------- (sprint 3B)
 
             }

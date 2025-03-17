@@ -35,7 +35,7 @@ public class PlayerScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         effects = GetComponent<ElementEffects>();
-        effects.IceEffect();
+        //effects.IceEffect();
 
     }
 

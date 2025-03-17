@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9b5a976709a3d4d4da8be288e4792c68
+guid: fa72af864ed8e024ba209d7966253baf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,22 +97,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: burning_loop_2_0
+      name: Bullet_0
       rect:
         serializedVersion: 2
-        x: 129
-        y: 8
-        width: 3
+        x: 2
+        y: 2
+        width: 2
         height: 4
-      alignment: 9
-      pivot: {x: 0.58017474, y: 0.4933188}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28efa0c99bbe279408bc6bde4f5ceb1e
-      internalID: -545102737
+      spriteID: b297021f5771e6448b8664540fd58a06
+      internalID: -1755073454
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      burning_loop_2_0: -545102737
+      Bullet_0: -1755073454
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

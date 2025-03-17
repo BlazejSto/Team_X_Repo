@@ -31,6 +31,7 @@ public class Coolness : MonoBehaviour
     PlayerScript playerScript;
     Health health;
     PlayerAttack attack;
+    ItemEffects items;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,7 @@ public class Coolness : MonoBehaviour
         playerScript.slowMult = slowMult;
         health = GetComponent<Health>();
         attack = GetComponent<PlayerAttack>();
+        items = GetComponent<ItemEffects>();
         //
         coolness = 0;
         decayrate = 1;
@@ -101,6 +103,17 @@ public class Coolness : MonoBehaviour
         //{
         //    IceMultOff();
         //}
+
+        if(Input.GetKey(KeyCode.I))
+        {
+            coolness = 7000;
+            Hypothermia = 5;
+        }
+        if (Input.GetKey(KeyCode.O))
+        {
+            coolness = 3000;
+            Hypothermia = 0;
+        }
 
 
         //Debug stuff
@@ -211,6 +224,7 @@ public class Coolness : MonoBehaviour
             playerScript.slowMult = 1;
             attack.DamageMult = 1;
             health.DamageMult = 1;
+            items.Mult = 1;
         }
 
         else
@@ -221,6 +235,7 @@ public class Coolness : MonoBehaviour
                 attack.DamageMult = 1.5f;
                 health.DamageMult = 1.5f;
                 //Item efficiency for cold items now 1 <---- need public stat to change (sprint 3B)
+                items.Mult = 1.5f;
                 //Ice visual effects stage 1 (HUD effects) <-------- Sprint 3B
                 
             }
@@ -235,6 +250,7 @@ public class Coolness : MonoBehaviour
             if (Hypothermia >= 3)
             {
                 //Item efficiency for cold now 2 <---- need public stat to change (sprint 3B)
+                items.Mult = 2;
                 //Health Recovery of any kind reduced (0.75x?) <---- need public stat to change (sprint 3B)
                 //Ice visual effects stage 3(HUD effects) <------- (sprint 3B)
                 

@@ -32,11 +32,11 @@ public class ItemEffects : MonoBehaviour
     GameObject player; // Get Player
 
 
-    public float ItemAttackMult = 1f;
+    private float ItemAttackMult = 1f;
 
     bool effectTimer = false;
 
-    private float Mult = 0f; // This is used for the muliplier after fetching from coolness.TimerMult
+    public float Mult = 0f; // This is used for the muliplier after fetching from coolness.TimerMult
 
     private bool IsLightAttacking = false; // Used for set damage/Multiplier
     private bool IsHeavyAttacking = false; // Used for set damage/Multiplier
@@ -112,18 +112,9 @@ public class ItemEffects : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D coll) // Item Effects START
     {
-        if (coll.gameObject.tag == "Bigger")
-        {   
-            if (timer < (10f * Mult)) // Start Item effect
-            {
-                effectTimer = true;
-                rigidBody.transform.localScale = new Vector3(2, 4, 2); // Make sprite bigger
-                Destroy(coll.gameObject);
-            }
-        }
-
         if (coll.gameObject.tag == "Faster")
         {
+            timer = 0;
             if (timer < (10f * Mult)) // Start Item effect
             {
                 effectTimer = true;
@@ -132,13 +123,26 @@ public class ItemEffects : MonoBehaviour
             }
         }
 
+        if (coll.gameObject.tag == "Bigger")
+        {
+            timer = 0;
+            if (timer < (10f * Mult)) // Start Item effect
+            {
+                effectTimer = true;
+                rigidBody.transform.localScale = new Vector3(2, 4, 2); // Make sprite bigger
+                Destroy(coll.gameObject);
+            }
+        }
+
         if (coll.gameObject.tag == "Double")
         {
-            effectTimer = true;
-            Destroy(coll.gameObject); // 
+            timer = 0;
+            
             if (timer < (10f * Mult)) // Start Item effect
             {
                 ItemAttackMult = 2;
+                effectTimer = true;
+                Destroy(coll.gameObject); // 
 
                 //doubleE = true;
                 ////if (IsRanged == true)
@@ -243,26 +247,22 @@ public class ItemEffects : MonoBehaviour
     {
         if (effectTimer == true)
         {
+            weapon.ItemDMG = ItemAttackMult; //this is probably gonna break badly but oh well
+            Speed.speed = speed;
             Effects();
         }
 
-        IsLightAttacking = weapon.GetLight();
-        IsHeavyAttacking = weapon.GetHeavy();
+        
 
-    }
-
-    void FixedUpdate()
-    {
-        weapon.ItemDMG = ItemAttackMult; //this is probably gonna break badly but oh well
-        Speed.speed = speed;
     }
 
     void Effects()
     {
         timer += Time.deltaTime; // Start the timer
-        if(timer >= 10)
+        if(timer >= 10*Mult)
         {
             DefaultEffects();
+            effectTimer = false;
             timer = 0f;
         }
     }

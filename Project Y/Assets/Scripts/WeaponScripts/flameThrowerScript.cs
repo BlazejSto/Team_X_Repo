@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class flameThrowerScript : MonoBehaviour
 {
     private Rigidbody2D rb;
     Animator anim;
@@ -28,19 +28,6 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "wall")
             Destroy(gameObject); //destroys the game obejct
-
-        if(collision.gameObject.tag == "EnemyHealth" || collision.gameObject.tag == "PlayerTag")//on collision with enemies and player
-        {
-            speed = 0;//stops object from moving
-            anim.SetBool("HitPerson", true);//plays a blood splatter animation
-            StartCoroutine("Delay", wait);
-        }
-    }
-
-    IEnumerator Delay()//destroys object after animation has finished
-    {
-        yield return new WaitForSeconds(wait);
-        Destroy(gameObject);
     }
 
     IEnumerator DestroyAfterTime()

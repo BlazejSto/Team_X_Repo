@@ -7,7 +7,7 @@ public class pickupGuns : MonoBehaviour
     int gunState = 0;
 
     /*playerStates
-    0 == no gun
+    0 == Revolver
     1 == pistol
     2 == smg*/
 
@@ -15,30 +15,38 @@ public class pickupGuns : MonoBehaviour
     bool weaponCheck = false;
     bool pistolCheck = false;
     bool SMGCheck = false;
+    bool shotgunCheck = false;
+    bool flameThrowCheck = false;
 
     float nextShot = 0;
     public float pistolFireRate;
     public float smgFireRate;
+    public float revFireRate;
+    public float shotgunFireRate;
 
     public GameObject bullet;
     public GameObject bulletSpawn;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject fire;
 
     // Update is called once per frame
     void Update()
     {
         InputCheck();
 
-        if(gunState == 1)
+        if (gunState == 0)
+            Revolver();
+
+        else if (gunState == 1)
             Pistol();
 
-        if (gunState == 2)
+        else if (gunState == 2)
             SMG();
+
+        else if (gunState == 3)
+            Shotgun();
+
+        else if (gunState == 4)
+            FlameThrower();
     }
 
 
@@ -64,9 +72,21 @@ public class pickupGuns : MonoBehaviour
             holdingGun = true;
         }
 
-        if(weaponCheck == true && SMGCheck == true)
+        if (weaponCheck == true && SMGCheck == true)
         {
             gunState = 2;
+            holdingGun = true;
+        }
+
+        if (weaponCheck == true && shotgunCheck == true)
+        {
+            gunState = 3;
+            holdingGun = true;
+        }
+
+        if (weaponCheck == true && flameThrowCheck == true)
+        {
+            gunState = 4;
             holdingGun = true;
         }
 
@@ -75,16 +95,27 @@ public class pickupGuns : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "PistolTag")
+        if (collision.gameObject.tag == "PistolTag")
         {
             weaponCheck = true;
             pistolCheck = true;
         }
 
-        else if(collision.gameObject.tag == "SMGTag")
+        else if (collision.gameObject.tag == "SMGTag")
         {
             weaponCheck = true;
             SMGCheck = true;
+        }
+        else if (collision.gameObject.tag == "ShotgunTag")
+        {
+            weaponCheck = true;
+            shotgunCheck = true;
+        }
+
+        else if (collision.gameObject.tag == "FlameThrowerTag")
+        {
+            weaponCheck = true;
+            flameThrowCheck = true;
         }
     }
 
@@ -100,6 +131,18 @@ public class pickupGuns : MonoBehaviour
         {
             weaponCheck = false;
             SMGCheck = false;
+        }
+
+        else if (collision.gameObject.tag == "ShotgunTag")
+        {
+            weaponCheck = false;
+            shotgunCheck = false;
+        }
+
+        else if (collision.gameObject.tag == "FlameThrowerTag")
+        {
+            weaponCheck = false;
+            flameThrowCheck = false;
         }
     }
 
@@ -121,8 +164,47 @@ public class pickupGuns : MonoBehaviour
         }
     }
 
+    void Revolver()
+    {
+        if (Input.GetKeyDown(KeyCode.H) && Time.time > nextShot)
+        {
+            SpawnBullet();
+            nextShot = Time.time + revFireRate;//gives the player a set fire rate for their weapon
+        }
+    }
+
+    void Shotgun()
+    {
+        if (Input.GetKeyDown(KeyCode.H) && Time.time > nextShot)
+        {
+            SpawnPellets();
+            nextShot = Time.time + shotgunFireRate;//gives the player a set fire rate for their weapon
+        }
+    }
+
+    void FlameThrower()
+    {
+        if (Input.GetKey(KeyCode.H))
+            SpawnFire();
+    }
+
     void SpawnBullet()
     {
-        Instantiate(bullet, bulletSpawn.transform.position, transform.rotation);//instantiates a bullet at the bulletSpawn gameObject
+        Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);//instantiates a bullet at the bulletSpawn gameObject
+    }
+
+    void SpawnPellets()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            float spread = Random.Range(-15f, 15f);//randomises spread
+            Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation * Quaternion.Euler(0, 0, spread));
+        }
+    }
+
+    void SpawnFire()
+    {
+        float fireSpread = Random.Range(-20f, 20f);//randomises spread
+        Instantiate(fire, bulletSpawn.transform.position, bulletSpawn.transform.rotation * Quaternion.Euler(0, 0, fireSpread));
     }
 }

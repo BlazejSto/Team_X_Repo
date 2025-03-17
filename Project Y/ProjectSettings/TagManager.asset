@@ -20,6 +20,10 @@ TagManager:
   - Piercing
   - Double
   - CoolMeterDependent
+  - ShotgunTag
+  - FlameThrowerTag
+  - Bullet
+  - FlameThrowerFire
   layers:
   - Default
   - TransparentFX

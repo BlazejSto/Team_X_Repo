@@ -54,4 +54,18 @@ public class EnemyHealth : MonoBehaviour
         iFrames = false;
     }
 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Bullet")
+        {
+            Enemy_Damage(5);
+        }
+
+        else if(collision.gameObject.tag == "FlameThrowerFire")
+        {
+            Enemy_Damage(4f);
+        }
+    }
+
 }

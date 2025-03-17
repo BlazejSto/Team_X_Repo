@@ -6,6 +6,24 @@ TagManager:
   tags:
   - playerAttack
   - EnemyHealth
+<<<<<<< Updated upstream
+=======
+  - Bigger (Item)
+  - Faster (Item)
+  - Piercing (Item)
+  - Double (Item)
+  - CoolMeterDependent (Item)
+  - PistolTag
+  - SMGTag
+  - Fire
+  - Ice
+  - Bigger
+  - Faster
+  - Piercing
+  - Double
+  - CoolMeterDependent
+  - ShotgunTag
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

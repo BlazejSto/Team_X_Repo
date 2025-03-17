@@ -230,8 +230,64 @@ MonoBehaviour:
   dashDistance: 2.5
   dashTime: 0
   dashDelay: 0
+<<<<<<< Updated upstream
 --- !u!61 &-5360248677086053885
 BoxCollider2D:
+=======
+  DashSound: {fileID: 0}
+--- !u!114 &7546438814690597373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8674735162465525777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8df0d9014f0d61f44b9423a5f01855e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageMult: 1
+  ItemDMG: 1
+  Melee: Fists
+  Ranged: Revolver
+  coolness: {fileID: 0}
+--- !u!114 &5798684493435190287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8674735162465525777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714052790c17f2344a0fbfc1de0d08c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player_health: 100
+  DamageMult: 1
+--- !u!114 &1547817515086287080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8674735162465525777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 476968ae891151a42831d054c58b31f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pistolFireRate: 0
+  smgFireRate: 0
+  revFireRate: 0
+  shotgunFireRate: 0
+  bullet: {fileID: 0}
+  bulletSpawn: {fileID: 0}
+  flameHitbox: {fileID: 0}
+--- !u!60 &4552661439294676617
+PolygonCollider2D:
+>>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -272,6 +328,104 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
+<<<<<<< Updated upstream
+=======
+  m_Points:
+    m_Paths:
+    - - {x: -0.038407635, y: 0.27892318}
+      - {x: -0.06765048, y: 0.22492635}
+      - {x: -0.0864854, y: 0.12256217}
+      - {x: -0.08, y: -0.275}
+      - {x: 0.07726829, y: -0.27228156}
+      - {x: 0.08718009, y: 0.1311462}
+      - {x: 0.069052905, y: 0.23152661}
+      - {x: 0.08130069, y: 0.27904287}
+  m_UseDelaunayMesh: 0
+--- !u!114 &3978860268996718199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8674735162465525777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbbcbd9605b854c4bab956306ce2b680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GunMultList: []
+--- !u!114 &548273275954545186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8674735162465525777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cdf08a3d091d354e8b0bc4c13b7ca09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footstep: {fileID: 4224652276221454536}
+--- !u!114 &4307223291011268873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8674735162465525777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9ab0c62095a03d49940b9d1e1ad076c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Coolness: {fileID: 0}
+  health: {fileID: 0}
+  playerScript: {fileID: 0}
+  Burning: 0
+  Freezing: 0
+  fireDmg: 1
+  slowMult: 1
+  Hypo: 0
+  burnTickTimer: 
+  PlayerBurningSFX: {fileID: 0}
+--- !u!114 &7789963781127917626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8674735162465525777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 170ca90ea23f48149b1697a445271cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlameIgnitionSFX: {fileID: 0}
+--- !u!1 &8763044077895893929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5322932620547395281}
+  m_Layer: 0
+  m_Name: UpTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5322932620547395281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8763044077895893929}
+>>>>>>> Stashed changes
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
@@ -324,6 +478,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1358231870474997178}
+  - component: {fileID: 2675489142757751967}
   m_Layer: 0
   m_Name: BulletSpawn
   m_TagString: Untagged
@@ -346,6 +501,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6468840046713733842}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2675489142757751967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8990589718915568308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e69fdaab57cf32489fef5fa6cb6193e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9035092127137188036
 GameObject:
   m_ObjectHideFlags: 0

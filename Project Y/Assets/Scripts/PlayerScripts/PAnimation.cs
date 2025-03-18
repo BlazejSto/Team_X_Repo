@@ -9,11 +9,14 @@ public class PAnimation : MonoBehaviour
     GameObject player;// player
     Rigidbody2D body;
     PlayerAttack attack;
+    pickupGuns guns;
     float ySpeed;
+    float Timer;
     // Start is called before the first frame update
     void Start()
     {
         attack = GetComponent<PlayerAttack>();
+        guns = GetComponent<pickupGuns>();
         animator = GetComponent<Animator>();
         player = Health.GetInstance().gameObject;//finds the player
         body = player.GetComponent<Rigidbody2D>();
@@ -30,10 +33,17 @@ public class PAnimation : MonoBehaviour
 
     }
 
+    public void FireGun()
+    {
+        animator.SetBool("FiringGun", true);
+        Timer = Time.time;
+    }
+
     private void FixedUpdate()
     {
         animator.SetBool("LightAttacking", attack.lightAttacking);
         animator.SetBool("HeavyAttacking", attack.heavyAttacking);
+        animator.SetInteger("Gun",guns.gunState);
 
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
@@ -76,7 +86,8 @@ public class PAnimation : MonoBehaviour
             animator.SetInteger("Facing", 3); //3 is facing right
         }
 
-        
+        if (Time.time > Timer + 1f)
+            animator.SetBool("FiringGun", false);
 
 
 

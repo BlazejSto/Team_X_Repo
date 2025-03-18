@@ -1127,6 +1127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df0d9014f0d61f44b9423a5f01855e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightAttacking: 0
+  heavyAttacking: 0
   DamageMult: 1
   ItemDMG: 1
   Melee: Fists

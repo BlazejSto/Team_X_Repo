@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class pickupGuns : MonoBehaviour
 {
-    int gunState = 0;
+    public int gunState = 0;
 
     /*playerStates
     0 == Revolver
@@ -18,7 +18,7 @@ public class pickupGuns : MonoBehaviour
     bool shotgunCheck = false;
     bool flameThrowCheck = false;
 
-    float nextShot = 0;
+    public float nextShot = 0;
     public float pistolFireRate;
     public float smgFireRate;
     public float revFireRate;
@@ -27,6 +27,15 @@ public class pickupGuns : MonoBehaviour
     public GameObject bullet;
     public GameObject bulletSpawn;
     public GameObject fire;
+
+    PAnimation anim;
+
+    void Start()
+    {
+        anim = GetComponent<PAnimation>();
+    }
+
+
 
     // Update is called once per frame
     void Update()
@@ -152,6 +161,7 @@ public class pickupGuns : MonoBehaviour
         {
             SpawnBullet();
             nextShot = Time.time + pistolFireRate;//gives the player a set fire rate for their weapon
+            anim.FireGun();
         }
     }
 
@@ -161,6 +171,7 @@ public class pickupGuns : MonoBehaviour
         {
             SpawnBullet();
             nextShot = Time.time + smgFireRate;//gives the player a set fire rate for their weapon
+            anim.FireGun();
         }
     }
 
@@ -170,6 +181,7 @@ public class pickupGuns : MonoBehaviour
         {
             SpawnBullet();
             nextShot = Time.time + revFireRate;//gives the player a set fire rate for their weapon
+            anim.FireGun();
         }
     }
 
@@ -179,13 +191,17 @@ public class pickupGuns : MonoBehaviour
         {
             SpawnPellets();
             nextShot = Time.time + shotgunFireRate;//gives the player a set fire rate for their weapon
+            anim.FireGun();
         }
     }
 
     void FlameThrower()
     {
         if (Input.GetKey(KeyCode.H))
+        {
             SpawnFire();
+            anim.FireGun();
+        }
     }
 
     void SpawnBullet()

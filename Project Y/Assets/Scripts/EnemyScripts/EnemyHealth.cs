@@ -74,7 +74,7 @@ public class EnemyHealth : MonoBehaviour
         else if(collision.gameObject.tag == "FlameThrowerFire")
         {
             cool.AddGunMult();
-            cool.CoolnessIncrease(15);
+            cool.CoolnessIncrease(0.1f);
             Enemy_Damage(4f);
         }
     }

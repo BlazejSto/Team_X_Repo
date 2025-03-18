@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == "wall")
             Destroy(gameObject); //destroys the game obejct
 
-        if(collision.gameObject.tag == "EnemyHealth" || collision.gameObject.tag == "Player")//on collision with enemies and player
+        if(collision.gameObject.tag == "EnemyHealth")//on collision with enemies and player
         {
             speed = 0;//stops object from moving
             anim.SetBool("HitPerson", true);//plays a blood splatter animation

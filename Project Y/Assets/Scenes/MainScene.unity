@@ -257,6 +257,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8990589718915568308, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
   m_PrefabInstance: {fileID: 145718649}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &18237794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18237792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47f948991a0c9e4487910e22b8229bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &20765543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,6 +1278,22 @@ PrefabInstance:
       propertyPath: bulletSpawn
       value: 
       objectReference: {fileID: 18237792}
+    - target: {fileID: 1547817515086287080, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
+      propertyPath: revFireRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547817515086287080, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
+      propertyPath: smgFireRate
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547817515086287080, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
+      propertyPath: pistolFireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547817515086287080, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
+      propertyPath: shotgunFireRate
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2609524636873573878, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
       propertyPath: cool
       value: 50
@@ -1374,6 +1402,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8674735162465525777, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1302685309}
+    - targetCorrespondingSourceObject: {fileID: 8990589718915568308, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 18237794}
   m_SourcePrefab: {fileID: 100100000, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
 --- !u!1 &145718650 stripped
 GameObject:

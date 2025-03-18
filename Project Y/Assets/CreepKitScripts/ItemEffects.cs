@@ -110,7 +110,7 @@ public class ItemEffects : MonoBehaviour
       //  }
    // }
 
-    private void OnCollisionEnter2D(Collision2D coll) // Item Effects START
+    private void OnTriggerEnter2D(Collider2D coll) // Item Effects START
     {
         if (coll.gameObject.tag == "Faster")
         {

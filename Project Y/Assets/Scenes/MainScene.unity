@@ -1280,7 +1280,7 @@ PrefabInstance:
       objectReference: {fileID: 18237792}
     - target: {fileID: 1547817515086287080, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
       propertyPath: revFireRate
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1547817515086287080, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
       propertyPath: smgFireRate
@@ -1292,7 +1292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1547817515086287080, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
       propertyPath: shotgunFireRate
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2609524636873573878, guid: 8f716e0fc6ffa824ab68d9ef7a0decca, type: 3}
       propertyPath: cool

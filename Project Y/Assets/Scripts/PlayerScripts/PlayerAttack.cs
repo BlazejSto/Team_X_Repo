@@ -20,8 +20,8 @@ public class PlayerAttack : MonoBehaviour
     GameObject LightCrowbar = default;//Light and Heavy Crowbar
     GameObject HeavyCrowbar = default;
 
-    private bool lightAttacking = false;
-    private bool heavyAttacking = false;
+    public bool lightAttacking = false;
+    public bool heavyAttacking = false;
 
 
 

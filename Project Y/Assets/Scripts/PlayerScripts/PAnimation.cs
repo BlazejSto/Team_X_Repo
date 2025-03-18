@@ -8,10 +8,12 @@ public class PAnimation : MonoBehaviour
     Animator animator;
     GameObject player;// player
     Rigidbody2D body;
+    PlayerAttack attack;
     float ySpeed;
     // Start is called before the first frame update
     void Start()
     {
+        attack = GetComponent<PlayerAttack>();
         animator = GetComponent<Animator>();
         player = Health.GetInstance().gameObject;//finds the player
         body = player.GetComponent<Rigidbody2D>();
@@ -43,6 +45,35 @@ public class PAnimation : MonoBehaviour
         }
         else
             animator.SetBool("LeftWalk", false);
+
+        if (Input.GetKey(KeyCode.J))
+        {
+            animator.SetBool("Attacking", true);
+        }
+
+
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            animator.SetInteger("Facing", 0);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            animator.SetInteger("Facing", 1);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            animator.SetInteger("Facing", 2);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            animator.SetInteger("Facing", 3);
+        }
+
+        animator.SetBool("LightAttacking", attack.lightAttacking);
+        animator.SetBool("HeavyAttacking",attack.heavyAttacking);
+
+
 
         //if (Input.GetKey(KeyCode.A))
         //{

@@ -39,11 +39,18 @@ public class PAnimation : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            player.transform.localScale = new Vector3(-2,player.transform.localScale.y, player.transform.localScale.z);
+            animator.SetBool("LeftWalk", true);
         }
         else
-        {
-            player.transform.localScale = new Vector3(2, player.transform.localScale.y, player.transform.localScale.z);
-        }
+            animator.SetBool("LeftWalk", false);
+
+        //if (Input.GetKey(KeyCode.A))
+        //{
+        //    player.transform.localScale = new Vector3(-2,player.transform.localScale.y, player.transform.localScale.z);
+        //}
+        //else
+        //{
+        //    player.transform.localScale = new Vector3(2, player.transform.localScale.y, player.transform.localScale.z);
+        //}
     }
 }

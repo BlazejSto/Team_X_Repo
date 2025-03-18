@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 8965802560291224694}
   - component: {fileID: 5678226229782956459}
   - component: {fileID: 9195324983744682323}
+  - component: {fileID: 735899961018359428}
   - component: {fileID: 3778001051142416711}
   m_Layer: 0
   m_Name: Enemy
@@ -263,7 +264,7 @@ Transform:
   m_GameObject: {fileID: 5747610445958223772}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.454472, y: -5.281379, z: -1}
+  m_LocalPosition: {x: 22.658983, y: -18.245865, z: -0.25}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -445,6 +446,59 @@ PolygonCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.55}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.046997126, y: 0.2771671}
+      - {x: -0.09218235, y: 0.14081495}
+      - {x: -0.08557153, y: -0.07465873}
+      - {x: -0.058328703, y: -0.28150144}
+      - {x: 0.060495928, y: -0.27933428}
+      - {x: 0.0904398, y: -0.08118651}
+      - {x: 0.092169285, y: 0.12259108}
+      - {x: 0.058854178, y: 0.27933428}
+  m_UseDelaunayMesh: 0
+--- !u!60 &735899961018359428
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5747610445958223772}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

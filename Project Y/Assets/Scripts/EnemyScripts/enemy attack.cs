@@ -6,7 +6,7 @@ public class enemyattack : MonoBehaviour
 {
     GameObject player;// player
 
-    [SerializeField] private float Damage = 10;
+    [SerializeField] private float Damage = 7.5f;
 
     private void Start()
     {

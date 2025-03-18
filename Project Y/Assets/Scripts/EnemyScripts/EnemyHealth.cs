@@ -6,7 +6,7 @@ using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 public class EnemyHealth : MonoBehaviour
 {
 
-    [SerializeField] private float Enemy_health = 10;
+    [SerializeField] private float Enemy_health = 75;
 
     GameObject player;// player
     public PlayerAttack Damage;//reference to PlayerAttack

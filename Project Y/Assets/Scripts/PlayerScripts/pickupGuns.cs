@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class pickupGuns : MonoBehaviour
 {
-    int gunState = 0;
+    public int gunState = 0;
 
     /*playerStates
     0 == Revolver
     1 == pistol
-    2 == smg*/
+    2 == smg
+    3 == shotgun
+    4 == flamethrower*/
 
     bool holdingGun = false;
     bool weaponCheck = false;

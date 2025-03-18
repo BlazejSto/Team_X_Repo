@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
     public static Health GetInstance() { return instance; }//reference that can be accessed by other objects
 
 
-    [SerializeField] private float Player_health = 100;
+    [SerializeField] public float Player_health = 100;
 
     private float Player_MAX_HEALTH = 100;
 

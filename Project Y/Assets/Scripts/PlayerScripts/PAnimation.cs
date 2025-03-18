@@ -32,7 +32,18 @@ public class PAnimation : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.W))
+        animator.SetBool("LightAttacking", attack.lightAttacking);
+        animator.SetBool("HeavyAttacking", attack.heavyAttacking);
+
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            animator.SetBool("Walking", true);
+        }
+        else
+            animator.SetBool("Walking", false);
+
+
+            if (Input.GetKey(KeyCode.W))
         {
             animator.SetBool("BackWalk", true);
         }
@@ -46,32 +57,26 @@ public class PAnimation : MonoBehaviour
         else
             animator.SetBool("LeftWalk", false);
 
-        if (Input.GetKey(KeyCode.J))
-        {
-            animator.SetBool("Attacking", true);
-        }
-
 
 
         if (Input.GetKey(KeyCode.W))
         {
-            animator.SetInteger("Facing", 0);
+            animator.SetInteger("Facing", 0);//0 is facing up
         }
         if (Input.GetKey(KeyCode.A))
         {
-            animator.SetInteger("Facing", 1);
+            animator.SetInteger("Facing", 1); //1 is facing left
         }
         if (Input.GetKey(KeyCode.S))
         {
-            animator.SetInteger("Facing", 2);
+            animator.SetInteger("Facing", 2); //2 is facing down
         }
         if (Input.GetKey(KeyCode.D))
         {
-            animator.SetInteger("Facing", 3);
+            animator.SetInteger("Facing", 3); //3 is facing right
         }
 
-        animator.SetBool("LightAttacking", attack.lightAttacking);
-        animator.SetBool("HeavyAttacking",attack.heavyAttacking);
+        
 
 
 

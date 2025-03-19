@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Coolness : MonoBehaviour
 {
-    float coolness;
+    public float coolness;
     float decayrate;
     float slowMult = 1;
 
-    char Rank;
+    public char Rank;
 
-    int Hypothermia;
+    public int Hypothermia;
 
     int GunMult;
     public List<float> GunMultList;

@@ -94,12 +94,15 @@ public class ElementEffects : MonoBehaviour
             }
             health.Damage(fireDmg); //Calls Damage method to deal damage while burn is applied
             burnTickTimer.RemoveAll(tick => tick == 0); //Removes all parts of the list once its empty
+            Burning = true;
             yield return new WaitForSeconds(0.75f); //Waits for set amount of seconds before running it again
         }
         if (burnTickTimer.Count <= 0)
         {
+            Burning = false;
             PlayerBurningSFX.Stop(); // When the player stops burning, the burning sound also stops.
             Coolness.FireMultOff();
+
         }
     }
 
@@ -110,9 +113,11 @@ public class ElementEffects : MonoBehaviour
             FrostCount--;
             health.Damage(IceDMG * Hypo);
             yield return new WaitForSeconds(0.75f);
+            Freezing = true;
         }
         if(FrostCount <= 0)
         {
+            Freezing=false;
             Coolness.IceMultOff();
         }
 

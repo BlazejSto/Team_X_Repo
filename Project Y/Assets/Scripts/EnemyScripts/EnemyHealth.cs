@@ -14,6 +14,8 @@ public class EnemyHealth : MonoBehaviour
     bool iFrames;
     ItemDrops Drops;
 
+    public AudioSource EnemyDeathSFX;
+
 
     void Start()
     {
@@ -52,6 +54,7 @@ public class EnemyHealth : MonoBehaviour
     private void Enemy_Death()
     {
         Debug.Log("I am dead!");
+        EnemyDeathSFX.Play(); // Plays a sound when the enemy dies
         Destroy(gameObject);
     }
 

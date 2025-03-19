@@ -16,6 +16,8 @@ public class Health : MonoBehaviour
 
     bool iFrames;
 
+    public AudioSource PlayerDeathSFX;
+
 
 
     private void Awake()
@@ -67,6 +69,7 @@ public class Health : MonoBehaviour
     private void PlayerDeath()
     {
         Debug.Log("I am dead!");
+        PlayerDeathSFX.Play(); // Plays a sound when the player dies
         Destroy(gameObject);
     }
 

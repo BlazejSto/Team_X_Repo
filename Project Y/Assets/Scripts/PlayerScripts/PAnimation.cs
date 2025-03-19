@@ -89,6 +89,30 @@ public class PAnimation : MonoBehaviour
         if (Time.time > Timer + 1f)
             animator.SetBool("FiringGun", false);
 
+        if(attack.Melee == "Fists") //fists = 0
+        {
+            animator.SetInteger("Weapon", 0);
+        }
+
+        else if (attack.Melee == "KDFists") //KD = 1
+        {
+            animator.SetInteger("Weapon", 1);
+        }
+
+        else if (attack.Melee == "Knife")// knife = 2
+        {
+            animator.SetInteger("Weapon", 2);
+        }
+
+        else if (attack.Melee == "BBat") //baseball bat = 3
+        {
+            animator.SetInteger("Weapon", 3);
+        }
+
+        else if (attack.Melee == "Crowbar") //baseball bat = 4
+        {
+            animator.SetInteger("Weapon", 4);
+        }
 
 
         //if (Input.GetKey(KeyCode.A))

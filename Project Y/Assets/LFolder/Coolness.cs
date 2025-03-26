@@ -195,7 +195,11 @@ public class Coolness : MonoBehaviour
 
     void HypothermiaCheck()
     {
-        if(coolness > 5000)
+        if (coolness <= 5000)
+        {
+            Hypothermia = 0;
+        }
+        if (coolness > 5000)
         {
             Hypothermia = 1;
         }

@@ -383,6 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy_health: 20
   Damage: {fileID: 0}
+  EnemyDeathSFX: {fileID: 0}
 --- !u!50 &4890410434908917734
 Rigidbody2D:
   serializedVersion: 4
@@ -589,8 +590,6 @@ MonoBehaviour:
   - {fileID: 8616312070567709252, guid: 67e2526639932be4cbac1fe13fe86da5, type: 3}
   - {fileID: 960914300122043317, guid: e601bc12b45545e4b97fc1c25d92bead, type: 3}
   - {fileID: 960914300122043317, guid: e601bc12b45545e4b97fc1c25d92bead, type: 3}
-  - {fileID: 5652046741337139881, guid: 0f2e3c06d0abf624c870de25ec6835ff, type: 3}
-  - {fileID: 5652046741337139881, guid: 0f2e3c06d0abf624c870de25ec6835ff, type: 3}
 --- !u!1 &6613618934431444066
 GameObject:
   m_ObjectHideFlags: 0

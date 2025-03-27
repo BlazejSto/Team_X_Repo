@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static Unity.Collections.AllocatorManager;
 
 public class Bullet : MonoBehaviour
 {
@@ -32,6 +33,8 @@ public class Bullet : MonoBehaviour
         if(collision.gameObject.tag == "EnemyHealth")//on collision with enemies and player
         {
             speed = 0;//stops object from moving
+            BoxCollider2D b = GetComponent<BoxCollider2D>();
+            b.GetComponent<BoxCollider2D>().isTrigger = false;
             anim.SetBool("HitPerson", true);//plays a blood splatter animation
             StartCoroutine("Delay", wait);
         }

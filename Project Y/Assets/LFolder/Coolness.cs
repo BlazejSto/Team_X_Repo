@@ -50,13 +50,13 @@ public class Coolness : MonoBehaviour
         GunMultMaxCount = 500;
 
         GunMultList = new List<float>();
-        GunMultList.Add(1f);//default mult
-        GunMultList.Add(2f);//shot 1
-        GunMultList.Add(3f);//shot 2
-        GunMultList.Add(5f);//shot 3
-        GunMultList.Add(8f);
-        GunMultList.Add(13f);
-        GunMultList.Add(21f);//shot 6
+        GunMultList.Add(0.5f);//default mult
+        GunMultList.Add(1f);//shot 1
+        GunMultList.Add(1.5f);//shot 2
+        GunMultList.Add(2f);//shot 3
+        GunMultList.Add(2.5f);
+        GunMultList.Add(3f);
+        GunMultList.Add(3.5f);//shot 6
 
         GenericMaxCounter = 250;
 
